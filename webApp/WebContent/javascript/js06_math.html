@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function setMathTest(){
+		var num=253.342;
+		var r="";
+		
+		r += "Math.PI=" + Math.PI+"<br/>"; 
+		r += "Math.pow=" + Math.pow(5,3)+"<br/>"; 
+		r += "Math.round=" + Math.round(num)+"<br/>"; 
+		r += "Math.ceil=" + Math.ceil(num)+"<br/>"; 
+		r += "Math.floor=" + Math.floor(num)+"<br/>"; 
+		r += "Math.max=" + Math.max(24,63,85,42,21,74,4353,123,34,234)+"<br/>"; 
+		r += "Math.random=" + Math.random()+"<br/>"; 
+		r += "Math.sqrt=" + Math.sqrt(10)+"<br/>"; //루트 값 구하기
+		r += "Math.abs=" + Math.abs(-3124.324)+"<br/>"; 
+		
+		document.getElementById("result").innerHTML= r;
+	}
+</script>
+</head>
+<body onload="setMathTest();">
+<div id="result"></div>
+</body>
+</html>

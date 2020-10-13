@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	body,ul,li{margin:0px; padding:0px;}
+	ul{list-style-type:none}
+	#content{width:800px; margin:0 auto;}
+	#content li{float:left; width:13%; height:40px; border-bottom:1px solid #ddd; line-height:40px;}
+	
+	/*제목 li만 사이즈 변경*/
+	#boardList>li:nth-child(6n+3){
+		width:45%;
+	}
+	/*체크박스 사이즈 변경*/
+	#boardList>li:nth-child(6n+1){
+		width:3%;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		var tag = "";
+		for(i=1000; i>950; i--){
+			tag = "<li><input type='checkbox' value='"+i+"'/></li>"; 
+			tag += "<li>"+i+"</li>"; 
+			tag += "<li>제목"+i+"</li>"; 
+			tag += "<li>작성자"+i+"</li>";
+			tag += "<li>2020-09-28</li>";
+			tag += "<li>5</li>";
+			
+			$("#boardList").append(tag);
+			
+		}
+		
+		//체크박스에 체크되면 (값이 변하면) 함수 실행 1.
+		$("#allCheck").on('change',function(){
+			//현재 checked가 true면 li에 있는 checkbox를 모두 checked 한다 (전체선택됨)
+			var r = $("#allCheck").prop("checked"); //체크 누르면 true, 해제하면 false가 r에 저장된다 
+			$("#boardList input").prop("checked",r); //boardList의 모든 input의 checked 상태가 r과 같이 설정한다
+			
+			//$("#boardList input").prop("checked",$("#allCheck").prop("checked")); 변수 없이 한 줄로 설정하는 방법
+		});
+		
+		//체크박스에 체크되면 (값이 변하면) 함수 실행 2.
+		//$("#allCheck").change(function(){});
+	});
+</script>
+</head>
+<body>
+<div id="content">
+	<input type="checkbox" id="allCheck"/>전체선택
+	<ul id="boardList"></ul>
+</div>
+</body>
+</html>

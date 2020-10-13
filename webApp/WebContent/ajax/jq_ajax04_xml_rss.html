@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>
+<script>
+	$(function(){
+		
+		$.ajax({
+			url:"ajax_rss.xml",
+			dataType:"xml",
+			success:function(result){
+				
+				var cnt = $(result).find('item').length;
+				
+				if(cnt>0){
+					
+					$(result).find('item').each(function(){
+						var title=$(this).find('title').text(); //뉴스제목
+						
+						var date = $(this).find('pubDate').text(); //기사 날짜
+						//pubDate의 날짜 형식 변경하기
+						var dateObj = new Date(date);
+						var y = dateObj.getFullYear(); //연
+						var m = dateObj.getMonth()+1; //월 
+						var d = dateObj.getDate(); //일 
+						var h = dateObj.getHours(); //시
+						var mi = dateObj.getMinutes(); //분
+						var s = dateObj.getSeconds(); //초
+						
+						var dateStr = y+"-"+m+"-"+d+" "+h+":"+mi+":"+s;
+						
+						
+						var author=$(this).find('author').text(); //기자
+						var link = $(this).find('link').text(); //뉴스 링크
+						var description = $(this).find('description').text(); //기사내용
+						var img = $(this).find('comments').text(); //이미지 파일명
+						
+						var tag="<tr><td>";
+						
+						tag += "<b><a href='"+link+"'>"+title+"</a></b>";
+						tag += '('+dateStr;
+						if(author.trim()==""){ //기자 데이터가 없을 때
+							tag += ")<br/>";
+						}else{ //기자 데이터 있을 때
+							tag += ","+author+")<br/>";
+						}
+						tag += "<p><img src='"+img+"'  align='right' style='width:100px; height:100px;'/>"+description+"</p></td></tr>";
+							
+						$("#news").append(tag);
+					});
+				}
+				
+				
+			},
+			error:function(request,status,error){
+				console.log("code="+request.code);
+				console.log("message="+request.responseText);
+				console.og("error="+error);
+			}
+		})
+	});
+</script>
+</head>
+<body>
+
+<div>
+<table class="table table-hover"><tbody  id="news"></tbody></table>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!--
+	=====easing 하기 위한 환경설정======
+	참고사이트: https://jqueryui.com/easing/
+	=> 화면 밑에 API ducumentation 클릭 -> 화면 밑에 빨간 점, start the race(easing의 종류에 따른 움직이는 모양 보여줌)
+	
+	===필요한 것=== => http://jqueryui.com/download/all 에서 다운로드 할 것
+	1.jquery-ui.min.css
+	2.jquery-3.5.1.min.js
+	3.jquery-ui.min.js
+	
+	사이트에서 jQuery UI 1.12.1 (concatenated JS and CSS files) 다운받기  => 압축 풀고 min.css와 min.js를 복사해서 jquery 폴더 안에 붙여넣는다
+	
+	=> 파일 안에 링크 걸기(순서 지켜서!)
+
+  -->
+<link rel="stylesheet" href="jquery-ui.min.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<style>
+	img{width:100px; height:100px; position:absolute;}
+</style>
+<script>
+	$(function(){
+		//														  	    easing:움직이는 모양
+		$("#i1").animate({marginLeft:"1000px", marginTop:"600px"},3000,"easeInOutElastic");
+		
+	});
+</script>
+</head>
+<body>
+<img src='../img/7.png' id="i1"/>
+</body>
+</html>

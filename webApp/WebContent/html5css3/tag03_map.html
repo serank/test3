@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Map을 이용한 링크걸기</title>
+</head>
+<body>
+<h1>Map태그를 이용하여 여러페이지로 링크걸기</h1>
+<img src="../img/jeju_map.jpg" usemap="#jejuMap"/>
+<p>
+명품 브랜드 루이비통이 최근 빨대 세트를 출시했다. 얼핏 보면 지갑 같지만 열어보면 빨대 6개와 세척용 브러시가 들어있다. 고급스러운 금색과 은색 빨대 위에는 루이비통 로고인 LV마크가 모노그램으로 새겨져 있다. 케이스는 천연 소가죽으로 만들었다. 가격은 1300달러로 한화 150만원 정도다. 홈페이지의 제품 소개 글을 보면 이 제품은 파티 등에 적합하다고 설명한다. 누가 빨대 세트를 150만원씩이나 주고 사겠나 싶지만 실제로 이런 고가의 브랜드 굿즈를 구매하는 소비자가 적지 않다고 한다. 
+럭셔리 브랜드가 내놓은 다양한 굿즈를 알아봤다.
+</p>
+<map name="jejuMap">
+	<!-- 사각형모양으로 링크걸기
+	shape속성: rect 사각형 circle원  poly 다각형
+	coords속성: 좌표 설정
+	
+	 -->
+	<area shape="rect" coords="250,130,330,180" href="https://www.airport.co.kr/jeju/main.do" target="_blank" title="제주공항홈페이지" style="outline=none"/>
+	<area shape="circle" coords="330,270,40" href="https://www.jeju.go.kr/hallasan/info/info/info.htm" target="_blank"/>
+	<area shape="poly" coords="70,210,130,240,70,290,20,245" href="../index.html"/> 
+
+</map>
+</body>
+</html>

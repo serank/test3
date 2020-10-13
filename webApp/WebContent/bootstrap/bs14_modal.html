@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+<style>
+	.container>img{
+		width:200px;
+		height:200px;
+	}
+	.modal-body{
+		overflow:hidden; margin-right:15px;
+	}
+</style>
+</head>
+<body>
+<div class="container" >
+	<!-- 컨텐츠 -->
+	<img src="../img/1.png" data-target="#dialog" data-toggle="modal"/>
+	<img src="../img/2.png"/>
+	<img src="../img/3.png"/>
+	<img src="../img/4.png"/>
+	<img src="../img/5.jpg"/>
+	
+	<!-- 모달창 만들기 -->
+	<div class="modal" id="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">모달제목</h4>
+					<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Body -->
+				<div class="modal-body">
+					<h2>모달내용</h2>
+					<img src="../img/sky4.jpg" />
+				</div>
+				<!-- Footer -->
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-primary">Close</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>

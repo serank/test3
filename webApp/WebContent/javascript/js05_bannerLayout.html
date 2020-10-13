@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{margin:0;}
+	#top1,#top2,#content{
+		width:1000px;
+		margin:0 auto;
+	}
+	#top1{
+		background-color:lightblue;
+		height:100px;
+	}
+	#top2{
+		background-color:pink;
+		height:100px;
+		text-align:center;
+		line-height:100px
+	}
+	#top2>input{
+		font-size:1.5em;
+		width:400px;
+	}
+	#bar{
+		height:3px;
+		background-color:blue;
+		position:relative;
+	}
+	#content{
+		position:relative;  <!--배너를 안에 넣기 위해서 포지션 relative -->
+	}
+	#content>img{
+		width:100%
+	}
+	#leftBanner{
+		position:absolute; /*기준점은 부모 content */
+		left:-100px;
+		top:0px;
+		width:100px;
+		height:300px;
+		background-color:yellow;
+	}
+	#rightBanner{
+		position:absolute;
+		left:1000px;
+		top:0px;
+		width:100px;
+		height:600px;
+		background-color:green;
+	}
+</style>
+
+<script>
+	function bannerMove(){
+		//window.scrollY: 위아래 스크롤바의 top 위치를 구한다v
+		var top = window.scrollY;
+		var header=200;
+		
+		if(document.getElementById("top1").style.display=="none"){ //top1 div가 안보이는 상태라면
+			header=100;
+		}
+		
+		if(top>header){
+			var y=top-header+"px";
+			
+			document.getElementById("bar").style.top= y; //bar의 좌표셋팅(스크롤이 탑div보다 내려갔을 때 스크롤 좌표 따라 내려가기)
+			document.getElementById("leftBanner").style.top= y;
+			document.getElementById("rightBanner").style.top= y;
+		}else{
+			document.getElementById("bar").style.top= "0px"; //아닐 때는 content div(부모 div)제일 위에 셋팅
+			document.getElementById("leftBanner").style.top= "0px";
+			document.getElementById("rightBanner").style.top= "0px";
+		}
+	}
+	
+	var str = "고양이 보고싶다~~~~~~~~~잠온다";
+	var cutCount=0;
+	
+	function textShow(){
+		//document.getElementById("txt").placeholder = str.slice(0,cutCount++); //글자 하나하나 잘라서 text에 셋팅하기 (placeholder)
+		
+		document.getElementById("txt").placeholder=str.slice(cutCount++,str.length); //글자 왼쪽으로 점점 사라지게 함
+		
+		if(str.length<cutCount){ //cutCount가 문자 수보다 크면 다시 1부터 실행
+			cutCount=1;
+		}
+	}
+</script>
+</head>
+<body onscroll="bannerMove()" onload="setInterval('textShow()',200)">
+<div id="top1" onclick="this.style.display='none'"></div>
+<div id="top2">
+	<input type="text" id="txt"/>
+</div>
+<div id="bar"></div>
+<div id="content">
+	<img src='../img/sky1.jpg'/>
+	<img src='../img/sky2.jpg'/>
+	<img src='../img/sky3.jpg'/>
+	<img src='../img/sky4.jpg'/>
+	<img src='../img/sky5.jpg'/>
+	<!-- 배너 -->
+	<div id="leftBanner"></div>
+	<div id="rightBanner"></div>
+</div>
+</body>
+</html>

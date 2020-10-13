@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!-- 
+	ckeditor편집기: textarea에 기능을 부여함
+	
+	
+	==필요한거==
+	1.jquery.min.js
+	2.ckeditor.js
+	=========
+	
+	1. https://ckeditor.com/ckeditor-4/download/ : ckeditor 홈페이지
+	=> full package 다운
+	2. 다운받아진 ckeditor 복사해서 폴더 째로 붙여넣기
+	3. 링크걸기
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+	$(function(){
+		//textarea에 ckeditor편집기 적용  = .replace(name속성 값);  //id나 다른 값은 안됨 => (주로 id와 name의 값을 같게 한다 )
+		CKEDITOR.replace("intro");
+		
+		//폼에서 submit이 발생하면 실행
+		$("#frm").submit(function(){
+			//이름 입력유무
+			if($("#username").val()==""){
+				alert("이름을 입력하세요.");
+				return false;
+			}
+			//자기소개 입력유무
+			//Ckeditor의 value 얻어오는 방법
+			var data = CKEDITOR.instances.intro.getData();
+			//alert(data);
+			if(data==""){
+				alert("자기소개를 입력하세요.");
+				return false;
+			}
+			
+			//두 if에 걸리지 않으면 다음 페이지로
+			return true;
+		});
+	});
+</script>
+</head>
+<body>
+<div id="editorTest">
+	<form method="post" name="frm" id="frm" action="aaa.jsp">
+		이름 : <input type="text" name="username" id="username"/><br/>
+		자기소개 :
+		<textarea name="intro" id="intro"></textarea><br/>
+		<input type="submit" value="전송"/>
+		 
+	</form>
+</div>
+</body>
+</html>

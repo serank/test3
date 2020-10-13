@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#main{
+		width:900px;
+		margin:0 auto;
+	}
+	hr{
+		width:100%;  padding:0; margin:0;
+		border: 3px solid blue;	
+		position:absolute; left:0;
+		overflow:visible;
+	}
+	#top{margin-left:100px;}
+	#top div{
+		width:700px;
+		height:100px;
+	}
+	#bottom{margin:0 auto;}
+	#bottom2{margin-left:100px;}
+	#bottom2 img{
+		width:700px;
+		height:500px;
+		text-align:center;
+	}
+	#bottom1 img{
+		width:700px;
+		height:500px;
+		text-align:center;
+		margin-left:100px;
+		float:left;
+	}
+	#bottom1{width:900px; float:left;}
+	#banner,#banner2{
+		float:left;
+	}
+	#banner{
+		width:100px; height:300px; 
+		background-color:yellow;float:left;
+		position:fixed;
+	}
+	#i1{float:left;}
+	#banner2{
+		width:100px;height:400px; background-color:green;
+		position:fixed;
+		float:left; margin-left:800px;
+	}
+	
+</style>
+
+
+<script>
+
+	var img=['sky1.jpg','sky2.jpg','sky3.jpg','sky4.jpg','sky5.jpg'];
+	var tag="";
+	//이미지 세팅
+	function imgSet(){
+		for(i=0; i<img.length; i++){
+			tag+="<img src='img/"+img[i]+"'/>";
+		}
+		document.getElementById("bottom2").innerHTML = tag;
+	}
+	
+	//파랑 안보이기
+	function blue(){
+		document.getElementById("blue").style.display="none";
+	}
+	
+	
+	
+	
+	function scroll(){
+		
+		var	banner = document.getElementById("banner"); //배너1
+		var	banner2 = document.getElementById("banner2"); //배너2
+		var line = document.getElementById("line"); //line
+		
+		var top = document.getElementById("top");
+		var h=top.clientHeight;//top의 높이
+		
+		var num = window.scrollY; //스크롤 위치
+		//console.log(num);
+		
+		if(num>220){
+			banner.style.position="fixed";
+			banner.style.top="0";
+			
+			//banner.style.right="100px";
+			
+			banner2.style.position="fixed";
+			banner2.style.top="0";
+			
+			line.style.position="fixed";
+			line.style.top="0";
+			
+		}else if(num<=220){
+			banner.style.position="absolute";
+			banner2.style.position="absolute";
+			line.style.position="absolute";
+			banner.style.top=h+10+"px";
+			banner2.style.top=h+10+"px";
+			line.style.top=h+5+"px";
+		}
+	}
+</script>
+</head>
+<body onload="imgSet();" onscroll="scroll();">
+<div id="main">
+	<div id="top">
+		<div id="blue" style="background-color:lightblue;" onclick="blue();"></div>
+		<div style="background-color:pink;"><input type="text"/></div>
+	</div>
+	<hr id="line"/>
+	<div id="bottom">
+		<div id="bottom1">
+			<div id="banner"></div><img src="img/sky5.jpg" id="i1"/><div id="banner2"></div>
+		</div>
+		<div id="bottom2"></div>
+	</div>
+</div>
+
+</body>
+</html>

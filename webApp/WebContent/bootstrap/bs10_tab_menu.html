@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>탭메뉴 만들기</h1>
+	<!-- 제목만들기 -->
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a href="#t1" class="nav-link" data-toggle="tab">여행가기</a></li>
+		<li class="nav-item"><a href="#t2" class="nav-link" data-toggle="tab">맛집</a></li>
+		<li class="nav-item"><a href="#t3" class="nav-link active" data-toggle="tab">트렌드</a></li>
+		<li class="nav-item"><a href="#t4" class="nav-link" data-toggle="tab">멋내기</a></li>
+	</ul>
+	
+	<!-- 탭메뉴의 컨텐츠 만들기 -->
+	<div class="tab-content">
+		<div class="tab-pane" id="t1">여행가기<br/><img src="../img/1.png"/></div>
+		<div class="tab-pane" id="t2">맛집<br/><img src="../img/2.png"/></div>
+		<div class="tab-pane" id="t3">트렌드<br/><img src="../img/3.png"/></div>
+		<div class="tab-pane" id="t4">멋내기<br/><img src="../img/4.png"/></div>
+	</div>
+</div>
+</body>
+</html>

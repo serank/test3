@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{width:500px; border:1px solid gray; margin:20px;}
+	
+	.txt1{
+		white-space:nowrap; /*줄 안 바꾸기*/
+		overflow:hidden;
+		text-overflow:ellipsis; /*줄임표시 ...로 표시*/
+	}	
+	.txt2{
+		height:75px; /*원하는 행수로 => 25x3 = 75를 높이로 주기*/
+		line-height:25px;
+		
+		display:-webkit-box;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-webkit-line-clamp:3; /*3줄만 나오게 하기*/
+		-webkit-box-orient:vertical;
+	}
+
+</style>
+</head>
+<body>
+	<div class="txt1">
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+	</div>
+	<div class="txt2">
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+		;미ㅏㄴ얼;ㅣㅏㅁㄴㄴㄴㄴㄴㄴㄴㄴ너ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
+	</div>
+</body>
+</html>

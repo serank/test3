@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+table{
+	margin:0px auto;
+	border-spacing:20px;
+	padding:0px;
+}
+td{
+	margin:20px 20px 20px;
+	border: 1px solid rgb(235,235,235);
+	overflow:auto;
+}
+td:not([id="td3"]){	width:200px;}
+td[id="td3"]{	height:400px;}
+
+#q{
+	color:rgb(45,195,215);
+	font-weight:bold;
+	font-size:18px;
+}
+#a{
+	color:gray;
+	font-weight:bold;
+	font-size:18px;
+}
+#qDiv{
+	float:left;
+	font-size:15px;
+}
+#aDiv{
+	float:left;
+	font-size:15px;
+	
+}
+
+#tr1{background-color:rgb(250,250,250);}
+#tr2{background-color:rgb(250,250,250);}
+#tr3>td[type=img]{width:200px;}
+
+#banner{
+	margin:5px 5px;
+	font-weight:bold;
+	font-size:13px;
+}
+#category{
+	padding:5px;
+	color:gray;
+	font-size:12px;
+}
+#td3Img{
+	width:200px;
+	height:400px;
+}
+#bannerImg{width:202px;}
+#qText{
+	font-weight:bold;
+ 	font-size:13px;
+ 	text-decoration:none;
+ 	color:black;
+  }
+#aText{
+	font-size:13px; 
+	color:gray;
+	text-decoration:none; 
+	
+}
+</style>
+<body>
+	<table id="main">
+		<tr id="tr1">
+			<td id="td1">
+				<div id="qDiv" >
+					<div id="q">Q</div>
+					<div><a href="#"  id="qText">할리우드 영화에서 러시안 인이 주로 악당으로...</a></div>
+				</div>
+				<div id="aDiv">
+					<div id="a">A</div>
+					<div><a href="#" id="aText">냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요...</a></div>
+				</div>
+			</td>
+			<td>
+				<div id="qDiv">
+					<div id="q">Q</div>
+					<div ><a href="#" id="qText">'독도'이름의 유래를 알려주세요.</a></div>
+				</div>
+				<div id="aDiv">
+					<div id="a">A</div>
+					<div ><a href="#" id="aText">독도와 관련된 명칭은 시대에 따라 문헌에 아주 다양하게 나옵니다. 조선...</a></div>
+				</div>
+			</td>
+			<td rowspan="2" id="td3">
+				<a href="#"><img src="img/tab2_1.png" id="td3Img"/></a>
+			</td>
+		</tr>
+		<tr id="tr2">
+			<td>
+				<div id="qDiv">
+					<div id="q">Q</div>
+					<div ><a href="#" id="qText">매실청은 당뇨환자에게 해로운가요?</a></div>
+				</div>
+				<div id="aDiv">
+					<div id="a">A</div>
+					<div ><a href="#" id="aText">매실청은 설탕으로 매실을 발효시킨 식품으로 당분이 많이 함유되어 있습니...</a></div>
+				</div>
+			</td>
+			<td>
+				<div id="qDiv">
+					<div id="q">Q</div>
+					<div ><a href="#" id="qText">108배가 다이어트에 도움이 되나요?</a></div>
+				</div>
+				<div id="aDiv">
+					<div id="a">A</div>
+					<div ><a href="#" id="aText">108배를 하면 땀도 굉장히 많이 나고 전신운동이 되기 때문에 운동 효...</a></div>
+				</div>
+			</td>
+		</tr>
+		<tr id="tr3">
+			<td>
+				<a href="#"><img src="img/tab2_2.png" id="bannerImg"/></a>
+				<div id="banner">견과류의 하루 적정 섭취량</div>
+				<div id="category">견과류</div>
+			</td>
+			<td>
+				<a href="#"><img src="img/tab2_3.png" id="bannerImg"/></a>
+				<div id="banner">날벌레가 빛에 몰려드는 이유</div>
+				<div id="category">곤충</div>
+			</td>
+			<td>
+				<a href="#"><img src="img/tab2_4.png" id="bannerImg"/></a>
+				<div id="banner">냉면의 유래와 역사</div>
+				<div id="category">음식</div>
+			</td>
+		</tr>
+	</table>
+	<div id="main">
+	</div>
+</body>
+</html>

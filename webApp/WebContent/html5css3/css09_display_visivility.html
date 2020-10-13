@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{width:200px; height:200px; position:absolute}
+	#d1{
+		background-color:lightblue;
+	 	display:block;
+	 	z-index:15;
+	 }
+	/*
+		visivility속성: 특정 개체를 보여주거나 숨길 수 있는 기능 => hidden(숨김), visible(보여줄 때) //보여지지 않을 때도 자기의 자리를 차지하고 있음
+	*/
+	#d2{
+		background-color:red;
+		/*visibility:hidden*/
+		left:100px; top:50px; /*위치이동*/
+		z-index:10;
+	}
+	/*
+		display속성: 보여주거나 숨길 수 있다. block(보여줌), none(숨김) => 숨기면 자리를 차지하지 않는다
+	*/
+	#d3{
+		background-color:green;
+		left:160px; top:120px;
+	}
+	/*
+		z-index속성: 겹칠 때 겹치는 순서 결정하기-> 1~양수 사용: 큰 값이 위로 온다
+	*/
+</style>
+</head>
+<body>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+</body>
+</html>

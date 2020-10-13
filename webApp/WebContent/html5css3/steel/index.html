@@ -1,0 +1,155 @@
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{background-color:rgb(146,204,101)}
+	#main{
+		margin:0 auto;
+		background-color:#fff;
+		width:1070px;
+	}
+	
+	table{
+		border-collapse: collapse; border-spacing:0;
+	}
+	table td{
+		padding:0;
+		border-collapse: collapse;
+		border-spacing:0;
+	}
+	
+	#menu td{
+		background-color:rgb(99,187,39);
+		font-size:20px;
+		width:160px;
+		height:70px;
+		text-align:center;
+	}
+	#menu td>img{
+		width:168px;
+		height:70px;
+	}
+	#menu a{
+		color:#fff;
+		text-decoration:none;
+		font-weight:bold;		
+	}
+	
+	/*컨텐츠 내용*/
+	#content{
+		margin-left:170px;
+	}
+	#left,#right{float:left;}
+	#right{
+		margin-left:85px;
+	}
+	#left>img{width:370px;}
+	#left>div{
+		width:360px;
+		margin-bottom:15px;
+		border:1px solid #000;
+		text-height:25px;
+		padding:5px;
+	}
+	#left img, #right img{
+		margin-bottom:20px;	
+	}
+	#gallery img{
+		width:85px;
+		margin:0px 5px 0px 5px;
+	}
+	#gallery div{
+		font-size:12px;
+		text-align:center;
+		margin-bottom:10px;
+	}
+</style>
+</head>
+<body>
+<div id="main">
+<header>
+	<table>
+		<tr>
+			<td></td>
+			<td><img src="img/css_gaon_02.jpg"/></td>
+			<td><img src="img/css_gaon_03.jpg"/></td>
+			<td><img src="img/css_gaon_04.jpg"/></td>
+			<td><img src="img/css_gaon_05.jpg"/></td>
+			<td><img src="img/css_gaon_06.jpg"/></td>
+		</tr>
+		<tr id="menu">
+			<td style="background-color:#fff"><img src="img/css_gaon_08.jpg"/></td>
+			<td><a href="#">COMPANY</a></td>
+			<td><a href="#">STEELHOUSE</a></td>
+			<td><a href="#">ARCHITECTURE</a></td>
+			<td><a href="#">INTERIOR</a></td>
+			<td><a href="#">COMMUNITY</a></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><img src="img/css_gaon_15.jpg"/></td>
+			<td><img src="img/css_gaon_16.jpg"/></td>
+			<td><img src="img/css_gaon_17.jpg"/></td>
+			<td><img src="img/css_gaon_18.jpg"/></td>
+			<td><img src="img/css_gaon_19.jpg"/></td>
+		</tr>
+	</table>
+</header>
+<div id="content">
+	<div id="left">
+		<img src="img/css_gaon_22.jpg"/>
+		<div>01. 자주하시는 질문</div>
+		<div>02. 질문과 답변</div>
+		<div>03. 채용안내</div>
+	</div>
+	
+	<div id="right">
+		<img src="img/css_gaon_24.jpg"/>
+		<table id="gallery">
+			<tr>
+				<td>
+					<img src="img/g1.png"/>
+					<div>멋진 인테리어</div>
+				</td>
+				<td>
+					<img src="img/g2.png"/>
+					<div>이쁜 실내</div>
+				</td>
+				<td>
+					<img src="img/g3.png"/>
+					<div>아파트단지</div>
+				</td>
+				<td>
+					<img src="img/g1.png"/>
+					<div>회의실 내부</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="img/g2.png"/>
+					<div>멋진 인테리어</div>
+				</td>
+				<td>
+					<img src="img/g3.png"/>
+					<div>이쁜 실내</div>
+				</td>
+				<td>
+					<img src="img/g1.png"/>
+					<div>아파트단지</div>
+				</td>
+				<td>
+					<img src="img/g3.png"/>
+					<div>회의실 내부</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="bottom">
+		<img src="img/css_gaon_31.jpg"/>
+	</div>
+</div>
+</div>
+</body>
+</html>

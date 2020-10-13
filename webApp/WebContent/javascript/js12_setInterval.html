@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setInterval: 일정한 시간 간격으로 함수를 재호출</title>
+<script>
+	var img = ['Cat.jpg', 'cat2.jpg', 'cat3.jpg'];
+	
+	var i=0;
+	function changeImage(){
+		document.getElementById("view").innerHTML = "<img src='../img/" + img[i++]+"'/>";
+		
+		
+		//index를 0으로 초기화(무한루프 걸림)
+		//if(img.length<=i) i=0;
+		
+		
+		//interval 정지시키기
+		if(i==3){
+			clearInterval(interval);
+		}
+	}
+	// setInterval('호출할 함수', 밀리초)
+</script>
+</head>
+<body onload="interval=setInterval('changeImage()',1000);">
+<div id='view'></div>
+</body>
+</html>

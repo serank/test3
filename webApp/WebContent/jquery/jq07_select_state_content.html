@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//상태선택자
+		//:text => 속성값이 txt인 경우 선택한다. 
+		$(":text").css("width","300px").css("height","30px");
+		//:checked -> 속성에 checked인 경우 선택한다.
+		$(":checked").prop("checked",false); //체크 해제
+		//:selected => 속성이 selected인 경우 선택
+		$(":selected").prop("selected",false); //선택 해제
+		
+		//컨텐츠 선택자
+		
+	});
+</script>
+</head>
+<body>
+<div>
+	<form>
+		<label>이름</label><input type="text" name="username" id="username"/><br/>
+		<label>연락처</label><input type="text" name="tel" id="tel"/><br/>
+		<label>사용자동의여부</label>
+		<input type="radio" name="accept" value="yes" checked/>동의
+		<input type="radio" name="accept" value="no" />비동의<br/>
+		<label>자주가는 사이트</label>
+		<select name="site" id="site">
+			<option value="not">==직접선택==</option>
+			<option value="daum">daum.net</option>
+			<option value="nate" selected>nate.com</option>
+			<option value="naver">naver.com</option>
+		</select>
+		<br/>
+		<input type="button" value="확인"/>
+	</form>
+</div>
+</body>
+</html>

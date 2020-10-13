@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var txt = "Javascript and html and css";
+	var reg = /html/i;   //정규표현식 규칙  i:대소문자 구별없이 검사하기
+	
+	//         표현식.test(문자열)
+	console.log(reg.test(txt));  //txt에 'html'이 있는지 검사하기 => 있으면 true; 없으면 false;
+	
+	
+	function formCheck(){
+		//조건: 총8~12자리, 첫번째 글자는 영문자, 영어대소문자, 숫자, _만 허용
+		//^ : 처음부터      
+		//$:끝까지 검사
+		//\w: 영어대소문자, 숫자, _
+		
+		
+		//아이디 검사
+		reg = /^[A-Za-z]{1}\w{7,11}$/; //[A-Za-z]{1}: 처음에 들어오는 문자는 요 범위 안에 잇어야한다~
+		var userid = document.getElementById("userid").value;
+		
+		if(!reg.test(userid)){ //true: 조건에 만족함  false: id를 잘못입력함
+			alert("아이디는 총 8~12자리이며 첫번째 글자는 영문자여야 합니다. 영어대소문자,숫자,_만 허용합니다.");
+			return false;
+		}
+		
+		//이름 검사: 2~7자리로 한글 가능 // 한글:가~힣 //영어:A-Za-z
+		reg= /^[가-힣]{2,7}$/;
+		
+		if(!reg.test(document.getElementById("username").value)){
+			alert("이름은 2~7자리, 한글만 허용");
+			return false;
+		}
+		
+		//주민번호 검사: 
+		//961002-1313131
+		var jumin = document.getElementById("jumin1").value + "-" + document.getElementById("jumin2").value;
+		
+		reg = /[0-9]{2}[01][0-9][0-3][0-9][-][0-9]{7}/;
+		
+		if(!reg.test(jumin)){
+			alert("주민등록번호 잘못 입력");
+			return false;
+		}
+		
+		//이메일 검사      seran@nate.com         asdf@daum.co.kr (도메인이 두개의 . 으로 나눠지는 이메일) => 생략가능한 검사할 문자는 ()? 안에 쓴다
+		reg = /^\w{8,20}[@][a-zA-Z]{2-20}[.][a-zA-Z]{2,3}([.][a-zA-z]{2,3})?$/;
+		
+		if(!reg.test(document.getElementById("email").value)){
+			alert("이메일 형식이 맞지 않음");
+			return false;
+		}
+		
+		
+		//연락처 체크
+		reg = /^(010|02|031|032|041)[-][0-9]{3,4}[-][0-9]{4}$/;
+		var tel = document.getElementById("tel1").value+"-";
+			tel += document.getElementById("tel2").value+"-";
+			tel += document.getElementById("tel3").value;
+			
+		if(!reg.test(tel)){
+			alert("연락처 잘못 입력");
+			return false;
+		}
+		
+		return true;
+	}
+	
+
+	function cursorMove(cnt,val,nextObj){
+
+		if(val.length>=cnt){
+			document.getElementById(nextObj).focus();
+		}
+		
+	}
+</script>
+</head>
+<body>
+<form method="post" action="aaaa.jsp" onsubmit="return formCheck()">
+	아이디 :<input type="text" id="userid" name="userid" value="seran111"/><br/>
+	이름:<input type="text" id="username" name="username" value="권세란"/><br/>
+	주민번호: <input type="text" id="jumin1" value="961002" onkeyup="cursorMove(6,this.value,'jumin2')"/> -
+			<input type="text" id="jumin2" value="0000000" onkeyup="cursorMove(6,this.value,'email')"/><br/>
+	이메일: <input type="text" name="email" id="email" value="goguma777@nate.com"/><br/>
+	연락처: <input type="text" name="tel1" id="tel1" onkeyup="cursorMove(3,this.value,'tel2')"/>-
+		<input type="text" name="tel2" id="tel2" onkeyup="value=this.value;cursorMove(4,value,'tel3')"/>-
+		<input type="text" name="tel3" id="tel3"/><br/>
+	<input type="submit" value="등록"/>
+</form>
+</body>
+</html>

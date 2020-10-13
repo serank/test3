@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*자손선택자*/
+	#mainDiv>ul{background-color:lightblue}
+	/*후손선택자*/
+	#mainDiv b{background-color:green}
+	/*반응선택자     (: 가상선택자(hover:커서가 눌러져있을 때))*/
+	#subDiv li:hover{
+	background-color:pink;
+	}
+	#subDiv li:active{
+		color:blue;
+	}
+</style>
+</head>
+<body>
+<h1>자손선택자,후손선택자</h1>
+<div id="mainDiv">
+	<ul>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+	</ul>
+	<h2>22222222222222222222</h2>
+</div>
+<div id="subDiv">
+	<ul>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+		<li>자손,후손선택자</li>
+	</ul>
+</div>
+</body>
+</html>

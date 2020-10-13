@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	#content{width:800px; margin:0 auto;}
+	#title{text-align:center; height:100px; padding:70px; font-size:3em;}
+	img{width:100%;}
+	
+	#menu{
+		list-style-type:none;
+		padding:0px;
+	}
+	#menu ul{
+		float:left;
+		padding:0px 45px;
+		text-decoration:none;
+		color:black;
+		font-size:20px;
+	}
+	
+	#menuBox{
+		position:absolute;
+		width:150px;
+		height:200px;
+		background-color:white;
+		border:1px solid gray;
+		margin-top:65px;
+		display:none;
+	}
+	
+	li{
+		line-height:20px;
+		padding:15px 0px;
+		font-size:15px;
+		list-style-type:none;
+	}
+	
+	
+	
+</style>
+<script>
+	$(function(){
+		$("#menu>ul").hover(function(){
+			$(this).next("div").css("display","block");
+		},function(){
+			$(this).next("div").css("display","none");
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+<div id="content">
+	<div id="title">GIRLSDAILY</div>
+	<div style="width:100%; height:2px; background-color:black;"></div>
+	<div id="menu">
+		<ul>OUTER</ul>
+			<div id="menuBox">
+				<ul>
+					<li>가디건</li>
+					<li>베스트</li>
+					<li>코트</li>
+				</ul>
+			</div>
+		<ul>TOP</ul>
+			<div id="menuBox" style="margin-left:150px; height:230px">
+				<ul>
+					<li>Tee</li>
+					<li>Cami</li>
+					<li>Knit</li>
+					<li>Shirt&Blouse</li>
+				</ul>
+			</div>
+		<ul>DRESS</ul>
+			<div id="menuBox" style="margin-left:300px;">
+				<ul>
+					<li>All</li>
+					<li>바캉스룩</li>
+					<li>SET</li>
+				</ul>
+			</div>
+		<ul>BOTTOM</ul>
+			<div id="menuBox" style="margin-left:450px;">
+				<ul>
+					<li>힐링투엘브</li>
+					<li>히든밴딩</li>
+					<li>스커트</li>
+					<li>팬츠</li>
+				</ul>
+			</div>
+		<ul>SUMMER</ul>
+			<div id="menuBox" style="margin-left:600px;">
+				<ul>
+					<li>HOLI스웸웨어</li>
+					<li>at 22C</li>
+					<li>바캉스룩</li>
+				</ul>
+			</div>
+	</div>
+	<img src='../img/Cat.jpg'/>
+</div>
+</body>
+</html>

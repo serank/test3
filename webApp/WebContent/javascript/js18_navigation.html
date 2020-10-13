@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//접속자의 운영체제,웹브라우저 정보 알아내기
+	//Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36
+	var user=(navigator.userAgent).toUpperCase(); //다 대문자로
+	document.write(user+"<hr/>");//hr: 줄 넣음
+	
+	
+	if(user.indexOf("WINDOWS")>=0){ //운영체제 정보에 windows가 있는가?
+		document.write("윈도우 운영체제를 사용중입니다.");
+	}else if(user.indexOf("MACINTOSH")>=0){
+		document.write("맥 운영체제를 사용중입니다.");
+	}else if(user.indexOf("LINUX")>=0){
+		document.write("리눅스 운영체제를 사용중입니다.");
+	}
+	
+	if(user.indexOf("CHROME")>=0){ 
+		document.write("<br/>크롬 브라우저를 사용중입니다.");
+	}
+	
+	document.write("<br/>language= "+ navigator.language); //사용 언어 알아내기
+	document.write("<br/>onLine= "+ navigator.onLine); //온라인 여부 알아내기 -> true/false 로 결과 ㄴㅏ옴
+	document.write("<br/>java= "+ navigator.javaEnabled()); //자바사용 여부 알아내기
+</script>
+</head>
+<body>
+	<h1>클라이언트가 사용중인 운영체제,웹브라우저를 확인할 수 있다.</h1>
+</body>
+</html>

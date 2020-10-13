@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+	<!-- 경고창 띄우기 
+		.alert: 경고창 만들기
+		
+		.alert-success, alert-info, alert-danger, alert-warning, alert-secondary, alert-active,,,
+	-->
+	<div class="alert alert-primary">alert 대화상자 만들기</div>
+	
+	<!-- 
+		닫기 기능이 있는 경고창 띄우기
+		
+		.close: 오른쪽으로 배치, 글자크기 조절됨
+		
+		속성                              속성값
+		data-dismiss = "alert" 을 a태그에 적용하면 클릭 시 경고창 대화상자가 닫힌다
+	 -->
+	 <div class="alert alert-secondary">
+	 	아이디를 입력하세요.
+	 	<a href="" class="close" data-dismiss="alert">&times;</a>
+	 </div>
+	 
+	 <div class="alert alert-danger">
+	 	<a href="bs04_jumbotron_table.html">클릭하세요</a> <!-- 링크 거는 것도 가능 -->
+	 </div>
+</div>
+
+
+</body>
+</html>

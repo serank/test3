@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	input{
+		width:100px; height:30px;
+		}
+	#text{
+		margin-top:10px; width:500px; height:300px; font-size:20px;
+		}
+</style>
+<script>
+	var font=20;
+	
+	$(function(){
+		
+		$("#minus").click(function(){
+			font -= 3;
+			$("#text").css("fontSize",font+"px");
+		});
+		
+		$("#plus").click(function(){
+			font += 3;
+			$("#text").css("fontSize",font+"px");
+		});
+		
+		$("#middle").click(function(){
+			$("#text").css("fontSize","20px");
+		});
+		
+		
+	})
+</script>
+</head>
+<body>
+<div id="content">
+	<input type="button" id="minus" value="-"/>
+	<input type="button" id="middle" value="o"/>
+	<input type="button" id="plus" value="+"/><br/>
+	<input type="text" id="text" value="가나다라마바사아자차카타가나다라마바">
+</div>
+</body>
+</html>

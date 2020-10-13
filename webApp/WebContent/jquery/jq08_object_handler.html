@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//html(): 특정 객체에 html태그를 추가 -> innerHTML
+		var tag="<a href=''>다음</a>구글과 애플의 앱 장터 수수료 강요";
+		
+		$("#daum").html(tag); //객체조작1에서 구글과 애플의 앱 장터 수수료 강요 <-로 텍스트 바뀜
+		//선택자의 정보를 얻어오기
+		console.log($("#daum").html());
+		
+		//text(): 특정객체에 문자로 추가
+		var txt="구글과 애플의 앱 장터 수수료 강요";
+		
+		$("h2").children('a').text(txt);
+		
+		console.log($("h2").children('a').text()); //콘솔에 '구글과 애플의 앱 장터 수수료 강요'찍힘
+		
+		$("#result").css("background-color","lightblue");
+		
+		var tagTxt = "구글과 애플의 <b>앱</b> 장터 <i>수수료</i> 강요";
+		//$("#result").text(tagTxt); //태그 적용 안됨
+		$("#result").html(tagTxt); //태그 적용됨
+		
+		//a태그의 href 속성의 값 설정 => https://www.nate.com
+		$("h2>a").attr("href","https://www.nate.com");
+		$("h2").children('a').attr("href","https://www.nate.com");
+		
+		//속성지우기
+		$('a').removeAttr("href"); //href지우기
+		$('h1').removeAttr("id"); //id지우기
+		
+	});
+</script>
+</head>
+<body>
+<h1 id="daum">객체조작1</h1>
+<h2><a href="">각체조작2</a></h2>
+<div id="result"></div>
+</body>
+</html>

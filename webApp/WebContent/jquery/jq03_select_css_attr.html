@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></script>
+<script>
+	$(document).ready(function(){
+		//선택자: 태그, 아이디선택자, 클래스선택자
+		
+		//태그선택자=> h1태그에 글자색 스타일
+		$("h1").css("color","blue");
+		//클래스 선택자
+		$(".c1").css("border","1px solid gray");
+		//아이디 선택자
+		$("#t1").css("background-color","lightblue");
+		
+		$("h1").css("background-image","url(../img/sky5.jpg)").css("color","red");
+		
+		//jquery에서 html속성을 이용할 때
+		$('img').attr("title","고양이");
+		$('img').attr("src","../img/1.png");
+		$("#txt").attr("value","seran");
+		
+		//읽기전용으로 변경
+		//prop:html의 속성 중 속성만 존재하는 경우 사용한다 -> readonly, disabled,checked,selected 등
+		$("#txt").prop("readonly",true);
+		
+		//if,for,switch,break,continue.....
+	});
+</script>
+</head>
+<body>
+<input type="text" id="txt"/><br/>
+<h1 class="c1">Jquery에서 클래스 선택자</h1>
+<h1 id="t1">Jquery에서 아이디 선택자</h1>
+<h1 class="c1">Jquery에서 클래스 선택자</h1>
+<img src="../img/cat2.jpg"/>
+</body>
+</html>

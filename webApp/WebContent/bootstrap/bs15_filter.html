@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+<script>
+	$(function(){
+		//검색어를 입력하면 호출하는 이벤트
+		$("#searchWord").keyup(function(){
+			var word = $("#searchWord").val().toLowerCase(); //toLoserCase(), toUpperCase()
+			//
+			$("#memList>tr").filter(function(){
+				//var trTxt = $(this).text().toLowerCase();
+				//var idx=trTxt.indexOf(word); //또는 trTxt.search(word);        
+				//console.log(trTxt);
+				
+				var trTxt = $(this).text().toLowerCase().indexOf(word); //-1,0,1,2,3....
+				$(this).toggle(trTxt>-1);  //true: 보임    /false:안보임
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<h2>Filter Test</h2>
+	<input type="text" id="searchWord" placeholder="Search" class="form-control">
+	<br/><hr/><br/>
+	<table class="table">
+		<thead>
+		<tr>
+			<td>FirstName</td>
+			<td>LastName</td>
+			<td>Phone</td>
+			<td>Email</td>
+		</tr>
+		</thead>
+		<tbody id="memList">
+		<tr>
+			<td>mary</td>
+			<td>joo</td>
+			<td>010-1231-1231</td>
+			<td>mary1@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>soo</td>
+			<td>k</td>
+			<td>010-3333-0000</td>
+			<td>soo1313@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>john</td>
+			<td>ttt</td>
+			<td>010-3333-7777</td>
+			<td>jjj11@naver.com</td>
+		</tr>
+		
+		<tr>
+			<td>eric</td>
+			<td>jang</td>
+			<td>010-8888-1231</td>
+			<td>eric1313@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>hojin</td>
+			<td>kwon</td>
+			<td>010-6666-1234</td>
+			<td>hojin123@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>primary</td>
+			<td>ooo</td>
+			<td>010-2345-1234</td>
+			<td>ooo123@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>ba</td>
+			<td>baba</td>
+			<td>010-7878-0000</td>
+			<td>bbbb@nate.com</td>
+		</tr>
+		
+		<tr>
+			<td>ho</td>
+			<td>ppang</td>
+			<td>010-9090-8888</td>
+			<td>hohoho@nate.com</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

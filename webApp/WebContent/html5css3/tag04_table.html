@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	테이블 만들기
+	table태그: 표의 범위
+	tr: 줄 생성
+	td: 칸 생성
+	caption: 표의 상단에 제목을 표시
+	th:title로 설정하고 싶은 칸을 설정
+	colgrout: 열 단위로 적용 가능
+	
+	thead
+	tbody
+	tfoot
+
+	속성
+	width: px, %
+	height: px
+	cellspacing, cellpadding, background, bgcolor...
+ -->
+ 
+ <table border="1" >
+ 	<caption style="font-size:25px; color:blue"><b>시간표</b></caption>
+ 	<colgroup>
+ 		<col span="2" style="background-image:url(../img/cat3.jpg)"/>
+ 		<col style="background:#dddddd"/>
+ 	</colgroup>
+ 	<!-- 첫번째 줄 -->
+ 	<tr width="800">
+ 		<!-- 칸 생성 -->
+ 		
+ 		<th width="300">첫번째 줄 </th>
+ 		<td><img src="../img/Cat.jpg" width="100"/></td>
+ 		<td width="300">세번째</td>
+ 	</tr>
+ 	</thead>
+ 	
+ 	<!-- 두번째 줄 -->
+ 	<tr height="300" >
+ 		<td>AAAAAAAAAAAAA</td>
+ 		<td style="background:pink">BBBBBBBBBBBBB</br><span style="font-weight:bold">ggggggggggggg</span>gggggggg</td>
+ 		<td>CCCCCCCCCCCCC</br>
+ 			<table border="1" width="100%">
+ 			<tr>
+ 				<td>111</td>
+ 				<td>222</td>
+ 			</tr>
+ 			<tr>
+ 				<td>333</td>
+ 				<td>444</td>
+ 			</tr>
+ 		</td>
+ 		
+ 	</tr>
+ </table>
+ 
+</body>
+</html>

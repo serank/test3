@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	bootstrap: 스타일시트 class의 집합
+	getbootstrap.com에서 다운로드 받는다
+	
+	1.meta 태그에 viewport 설정
+	2.bootstrap 스타일 파일 링크 
+	3.jquery
+	4.bootstrap 자바스크립트 파일 링크
+ -->
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+<style>
+	img{
+		width:700px;
+		height:500px;
+	}
+	.container{
+		border: 1px solid gray;
+	}
+	.container-fluid{background-color:lightblue;}
+</style>
+</head>
+<body>
+<!-- 
+	.container: 반응형 폭을 결정
+	.container-fluid: 화면폭을 100%로 설정
+
+ -->
+<div class="container-fluid">
+	<h1>홈페이지 내용</h1>
+	<img src="../img/sky6.jpg"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!-- 
+	innerfade.js 사이트: https://gist.github.com/coolniikou/665255
+	 => 사이트 들어가서 맨 오른쪽에 download JIP
+	 => jquery.innerfade.js를 폴더안에 붙여넣기
+	 => 링크 걸기(순서대로)
+	 
+	 1.jquery
+	 2.innerfade.js
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="plugin/jquery.innerfade.js"></script>
+<style>
+	ul,li{
+		list-style-type:none;
+		margin:0px;
+		padding:0px;
+	}
+	#imgInner img{
+		width:500px;
+		height:400px;
+	}
+	#imgInner{
+		width:500px;
+		height:400px;
+	}
+	div{
+		height:400px;	
+	}
+	div:nth-child(2){
+		width:500px;
+		font-size:1.5em;
+		border: 2px solid gray;
+	}
+	#textInner li{
+		background-color:lightblue;
+		height:400px;	
+	}
+	
+</style>
+<script>
+	$(function(){
+		//이미지에  innerfade적용하기
+		$("#imgInner").innerfade({
+			animationtype:'slide' //애니메이션 타입: 'slide', 'fade'(기본)
+			,speed:'slow' //속도: 'slow','fast','normal',밀리초
+			,timeout:3000 //쇼대기시간
+			,type:'random' //'random','sequence'(순서대로//기본), 'random_start'(시작만 랜덤)
+		});
+		
+		//문자에 innerfade적용하기
+		$("#textInner").innerfade({
+			animationtype:'fade'
+			,speed:'slow'
+			,timeout:4000
+			,tpye:'radom_start'
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<ul id="imgInner"> <!-- innerfade에서 원하는 규칙으로 만들어야함 -> div안되고 li 가능 -->
+		<li><a href="https://www.nate.com"><img src="../img/sky3.jpg"/></a></li> 
+		<li><a href="https://www.nate.com"><img src="../img/sky2.jpg"/></a></li>
+		<li><a href="https://www.nate.com"><img src="../img/sky1.jpg"/></a></li>
+		<li><a href="../idex.html"><img src="../img/sky4.jpg"/></a></li>
+		<li><a href="../idex.html"><img src="../img/sky5.jpg"/></a></li>
+		<li><a href="../idex.html"><img src="../img/5.jpg"/></a></li>
+		<li><a href="https://www.naver.com"><img src="../img/8.jpg"/></a></li>
+		<li><a href="https://www.naver.com"><img src="../img/7.png"/></a></li>
+	</ul>
+</div>
+<div>
+	<ul id="textInner">
+		<li>에너지(기)를 보충하기 위해, 학교의 평화를 지키기 위해 둘은 어쩔 수 없이(?) 손을 맞잡는 사이가 되어 힘을 합친다. 그들 앞에 나타나는 기이한 괴물들, 학생들에게 보이는 미스터리한 현상들, 학교 곳곳에 숨은 괴상한 힘들…… </li>
+		<li>이 학교에는 아무래도 뭔가가 있다. 출근 첫날부터 느낄 수 있었다. 안은영은 유감스럽게도 평범한 보건교사가 아니었다. 은영의 핸드백 속에는 항상 비비탄 총과, 무지개 색 늘어나는 깔때기형 장난감 칼이 들어 있다. 어째서 멀쩡한 30대 여성이 이런 걸 매일 가지고 다녀야 하나 속이 상하지 않는 건 아니지만 어쩔 수 없다.</li>
+		<li>여기에 사립 M고의 한문교사이자 학교 설립자의 후손인 홍인표에게 흐르는 거대한 에너지는 안은영의 활약을 돕는 필수적인 영양제 역할을 한다. 에너지(기)를 보충하기 위해, 학교의 평화를 지키기 위해 둘은 어쩔 수 없이(?) 손을 맞잡는 사이가 되어 힘을 합친다.</li>
+		<li> 그들 앞에 나타나는 기이한 괴물들, 학생들에게 보이는 미스터리한 현상들, 학교 곳곳에 숨은 괴상한 힘들…… 사립 M고에는 어떤 비밀이 있는 것일까. 무엇보다 안은영과 홍인표의 관계는 어떻게 마무리될까?</li>
+		<li> 진정 국면을 맞고 나서, 은영과 인표는 왜 일부의 아이들에게만 모종의 현상이 일어났는지 조용히 알아보았는데, 공격을 받은 아이들은 모두 최근에 알려지거나 알려지지 않은 실연을 경험한 것으로 판단되었다.</li>
+	</ul>
+</div>
+</body>
+</html>

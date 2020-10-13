@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>위도,경도를 이용한 구글 맵</title>
+<!-- 인증번호 받기
+	 https://cloud.google.com/maps-platfrom/
+	 https://maps.googleapis.com
+ -->
+<style>
+	#gMap{width:100%;
+		height:600px; border:1px solid gray;}
+</style>
+<!--  지도를 이용하기 위해 구글에서 자바 스크립트로 외부파일로 링크를 걸어야 한다 -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZO3MrykFpNpemqO2zPtG5M9ADUXSoApw&callback=initMap">
+</script>
+</head>
+<body>
+<!--  지도를 표시할 곳 -->
+<div id="gMap"></div>
+<script>
+	//지도의 정보를 표시하는 함수
+	var latitude=37.5729503; //위도
+	var longitude=126.97953578; //경도
+	var lati = [37.5329404, 37.5719522, 37.5929555];
+	var longi = [126.97953175, 126.1953578, 126.65953572];
+	
+	 function initMap(){
+		//지도의 center 지정
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		
+		//앱옵션
+		var mapProperty={
+			center : myCenter,
+			zoom : 12, //0~21까지의 값을 사용. 숫자가 클수록 확대된다
+			mapTypeId : google.maps.MapTypeId.ROADMAP //지도종류(ROADMAP, HYBRID, STEELITE, TERRAIN) 
+		};
+		
+		//맵 생성 객체						 지도를 표시할 곳					맵 옵션
+		var map= new google.maps.Map(document.getElementById("gMap"),mapProperty);
+		
+		//마커 표시
+		var marker = new google.maps.Marker({
+			position:myCenter,//마크 표시할 위치
+			map:map, //마커를 표시할 지도
+			title: '마커의 표시할 내용',
+			icon: 'gmap_pin.png'
+		}); 
+		marker.setMap(map);
+		
+		//마커를 클릭하면 대화상자 표시하기
+		//대화상자에 표시될 내용
+		var info = "위도:"+latitude+"<br/>경도:"+longitude;
+			info += "<br/><img src='../../img/1.png' width='80' height='50'/>";
+		
+		var infoObj = new google.maps.InfoWindow({content:info});
+		
+		//마커를 클릭 시 대화상자가 보여지도록 이벤트 등록 한다
+		google.maps.event.addListener(marker,'click',function(){infoObj.open(map,marker)});
+		
+		
+		
+		//여러 개의 마커 표시
+		for(i=0; i<lati.length; i++){
+			var mk = new google.maps.Marker({
+				position: new google.maps.LatLng(lati[i], longi[i]),
+				map: map,
+				title: "위도:"+lati[i]+"<br/>경도:"+longi[i]
+			});
+		}
+		//마커 세팅
+		mk.setMap(map);
+		
+		//반경 표시
+		var myCity = new google.maps.Circle({
+			center:myCenter
+			,radius:500 //단위는 미터
+			,strokeColor:'#f00' //선색깔
+			,strokeWidth:3 //선두께(px)
+			,strokeOpacity:0.5 //선 투명도 (0~1 사이)
+			,fillColor:'#ff0' //배경색
+			,fillOpacity: 0.5 //배경 투명도
+		});
+		myCity.setMap(map);
+	}
+	
+</script>
+</body>
+</html>

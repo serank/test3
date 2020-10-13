@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	textarea{width:300px; height:100px;}
+</style>
+<script>
+	$(function(){
+		var total=100;
+		
+		$("textarea").keyup(function(){ //키보드 눌러지면 실행 //keypress도 가능
+			
+			var cnt = $("#reply").val().length; //textarea의 value를 가져와서 그 길이를 구함
+			$("span").text(100-cnt);
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	남은 문자 수: <span>100</span><br/> <!-- 태그인데 아무런 기능이 없는 태그 => span -->
+</div>
+<textarea id="reply" maxlength="100"></textarea> <!-- input은 한 줄 밖에 들어가지 않음 => textarea 써야함 , maxlength=100 => 100글자 넘어가면 더 입력할 수 없음-->
+</body>
+</html>

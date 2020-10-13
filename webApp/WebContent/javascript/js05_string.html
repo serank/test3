@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*document.write("aaaa");
+	function output(){
+		document.wrtie("bbbb");
+	}
+	
+	자바스크립트에서 문자열 관련 모듈들
+	*/
+	var txt = "자바스크립트에서 문자열처리하기"; // \", \', \\, \n, \t
+	
+	//document.write("줄\n바꾸\t기"); //적용안됨
+	//alert("대화상자에 \n여러줄로 메세지 표시하기") //적용됨 (\n만)
+	
+	document.write("length = "+ txt.length);
+	document.write("<br/>indexOf = "+ txt.indexOf("문자열")); //없으면 -1출력
+	document.write("<br/>search =" + txt.search("문자열")); //indexOf랑 똑같음
+	//substring(), slice(), substr()
+	document.write("<br/>slice =" + txt.slice(3,7));
+	document.write("<br/>replace =" + txt.replace("문자열","String"));
+	
+	var txt2 = "Hello, JavaScript..";
+	document.write("<br/>toUpperCase ="+ txt2.toUpperCase());
+	document.write("<br/>toLowerCase ="+ txt2.toLowerCase());
+	
+	// +
+	document.write("<br/>concat =" +txt.concat(txt2)); //문자열 두 개 합치기
+	document.write("<br/>charAt =" +txt2.charAt(2));
+	document.write("<br/>charCodeAt =" + txt2.charCodeAt(0));
+	
+	var splitData = txt2.split("a"); //자동으로 배열으로 돌아옴
+	for(i=0; i<splitData.length; i++){
+		document.write("<br/>splitData["+i+"]=" + splitData[i]);
+	}
+	
+</script>
+</head>
+<body>
+<br/>
+<input type="button" value="Click" onclick="output()"/>
+</body>
+</html>

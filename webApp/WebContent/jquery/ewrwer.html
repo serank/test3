@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//상태선택자
+		//:text => 속성값이 txt인 경우 선택한다. 
+		$(":text").css("width","300px").css("height","30px");
+		//:checked -> 속성에 checked인 경우 선택한다.
+		$(":checked").prop("checked",false); //체크 해제
+		//:selected => 속성이 selected인 경우 선택
+		//$(":selected").prop("selected",false); //선택 해제
+		
+		//컨텐츠 선택자
+		//contains() -> 특정 문자가 포함된 경우 선택
+		$("p:contains('어쩌구')").css("background-color","pink");
+		
+		//has() => 선택자의 하위에 특정 태그가 포함된 경우 선택
+		$("p:has('b')").css("border","2px solid gray");
+		
+		//not() -> 특정선택자를 제외하고 나머지를 선택
+		$("p:not(':first')").css("background-color","#000").css("color","#fff");
+		
+		//closest():조상선택자
+		$("p").closest('body').css("background-color","lightblue");
+		
+		//filter() => 특징선택자가 포함된 경우 선택
+		$("p").filter(".c1").css("color","yellow");
+		
+		//contents() -> 특정선택자가 다른 태그에 포함된 경우
+		$("p").contents().css("font-size","3em");
+		
+		//selectIndex: selected가 된 목록의 index를 구해준다
+		
+		var idx = $("#site").prop('selectedIndex');
+		//컴포넌트에 value 세팅
+		$("#username").val(idx);
+	});
+</script>
+</head>
+<body>
+<div>
+	<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ<b>ㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏ</b>ㄴ어어쩌구;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	</p>
+	<p class="c1">
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾
+	</p>
+	<p class="c1">
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ;ㅣ나ㅓ리마넝;리ㅏㅓㄴㅁ;ㅣ라ㅓㅣㅁ;니ㅏㅓㄹ미ㅏㄴ어어쩌굼;ㅣ나얼;미ㅏ얼;ㅣ마ㅓㅇㄴ이ㅏ너이라
+	ㅁ;ㅣ아럼;ㅣ나얾
+	</p>
+
+	<form>
+		<label>이름</label><input type="text" name="username" id="username"/><br/>
+		<label>연락처</label><input type="text" name="tel" id="tel"/><br/>
+		<label>사용자동의여부</label>
+		<input type="radio" name="accept" value="yes" checked/>동의
+		<input type="radio" name="accept" value="no" />비동의<br/>
+		<label>자주가는 사이트</label>
+		<select name="site" id="site">
+			<option value="not">==직접선택==</option>
+			<option value="daum">daum.net</option>
+			<option value="nate" selected>nate.com</option>
+			<option value="naver">naver.com</option>
+		</select>
+		<br/>
+		<input type="button" value="확인"/>
+	</form>
+</div>
+</body>
+</html>

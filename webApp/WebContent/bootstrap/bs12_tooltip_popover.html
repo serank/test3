@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="bootstrap.js"></script>
+<style>
+	.container{padding:10px 200px 200px;}
+</style>
+<script>
+	$(function(){
+		$("[data-toggle=tooltip]").tooltip();
+		$("[data-toggle=popover]").popover();
+	});
+</script>
+</head>
+<body>
+<!-- tooltip, popover를 사용하기 위해서는 popper.js가 있어야 한다 
+-->
+
+<div class="container">
+	<!-- data-toggle="tooltip" => 현재 태그가 풍선도움 기능을 가진다
+		title속성: 풍선도움말 내용
+		data-placement: 풍선도움말 표시 위치(top,right,left,bottom)
+	  -->
+	<h1 data-toggle="tooltip" title="풍선도움말~~~~~" data-placement="top">Tooltip 테스트</h1>
+	<div data-toggle="tooltip" title="asdfasdfasfdasdf" data-placement="left"></div>
+	<div>
+		세상의 모든 정보를 ‘누구에게나’ 쉽게 만들어갑니다.
+		소소한소통은 발달장애인을 비롯한 정보약자를 위해 '쉬운정보'를 제공하는 사회적기업입니다. 한자어, 영어, 신조어 등은 쉬운 표현으로 바꾸고 이해를 돕는 그림을 추가해 문서, 책, 교육 자료 등을 누구나 이해하기 쉽게 만들어 갑니다.
+	</div>
+	
+	<h1>popover을 이용한 풍선도움말</h1>
+	<!-- 풍선도움말에 제목과 내용이 있는 것을 말한다.
+		title속성: 풍선도움말의 제목
+		data-content속성 :풍선도움말의 내용
+	 -->
+	 <div class="list-group">
+	 	<a href="#" class="list-group-item" title="ㅁㅁㅁㅁㅁ" data-content="포켓몬" data-toggle="popover" data-placement="top" data-trigger="hover">존재감이 없는 포켓몬</a>
+		<a href="#" class="list-group-item" title="ㅁㅁㅁㅁㅁ" data-content="포켓몬" data-toggle="popover" data-placement="left" data-trigger="hover">취급이 안좋은 포켓몬 시리즈4- 프테라</a>
+		<a href="#" class="list-group-item" title="ㅁㅁㅁㅁㅁ" data-content="포켓몬" data-toggle="popover" data-placement="bottom" data-trigger="hover">7세대 도감으로 보는 포켓몬 이야기</a>
+		<a href="#" class="list-group-item" title="ㅁㅁㅁㅁㅁ" data-content="포켓몬" data-toggle="popover" data-placement="right" data-trigger="hover">버그 포켓몬- 미싱노 이야기</a>
+		<a href="#" class="list-group-item" title="ㅁㅁㅁㅁㅁ" data-content="포켓몬" data-toggle="popover" data-trigger="hover">취급이 안좋은 포켓몬 시리즈3- 치코리타
+			<h2>네 번째 귀신은 5세대의 원더 브리지에서 등장하는 귀신입니다. </h2>
+			<p>포켓몬 세계에서도 손꼽히는 현대적이고 세련된 외관을 지닌 원더 브리지는 사실 기괴한 괴담과는 거리가 멀어보이는 이미지입니다. </p>
+		</a>
+	 </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	body{background-color:rgb(235,235,238)}
+#mainDiv{
+	width:800px; height:500px;
+	margin:0px auto;
+	background-color:#fff;
+}
+#subDiv{
+	position:absolute;
+	width:799px; margin:0px auto; height:370px;
+	background-color:#fff;
+	border:1px;
+	border-style: solid;
+	border-color:rgb(240,240,240);
+}
+#bottomDiv{
+	width:800px; margin:0px auto; height:200px;
+	background-color:#fff;
+}
+
+input{position:absolute}
+ input[type=text]{
+ 	color:gray;
+ 	font-size:18px;
+ 	width:300px; height:50px;
+ 	left:40px; top:50px;
+ }
+ #i1:active{
+ 	border:solid 1px lightblue;
+ 	border-color:lightblue;
+ 	border-width:1px;
+ 	background-color:rgb(234,240,253);
+ }
+ #i2{
+ 	position:absolute;
+ 	color:gray; font-size:18px;
+ 	width:300px; height:50px;
+ 	left:40px; top:120px;
+ }
+  #i2:active{
+ 	border-color:lightblue;
+ 	border-width:1px;
+ 	background-color:rgb(234,240,253);
+ }
+ 
+ 
+ input[type=checkbox]{
+ 	font-size:10px;
+ 	left:40px; top:270px;
+ }
+ input[type=button]{
+ 	width:310px; height:60px;
+ 	left:40px; top:200px;
+ 	background-color:rgb(77,135,239);
+ 	color:white;
+ 	font-size:20px;
+ }
+ 
+  img[src$=jfif]{ 
+ 	 display: block; margin: 0px auto;
+ 	 width:280px; height:150px;
+ }
+ img[src$=png]{ 
+  	position:absolute;
+  	width:190;
+  	height:240;
+	right:40px; top:50px;
+ }
+ #h1{
+ 	position:absolute;
+ 	left:110px; top:320px;
+ 	font-size:14px;
+ 	color:#000;
+ 	text-decoration:none;
+ 	font-style:bold;
+ }
+ #h1:hover{
+ 	text-decoration:underline;
+ }
+ #h2{
+ 	position:absolute;
+ 	left:200px; top:320px;
+ 	font-size:14px;
+ 	color:#000;
+ 	text-decoration:none;
+ 	font-style:bold;
+ }
+ #h2:hover{
+ 	text-decoration:underline;
+ }
+ #h3{
+ 	position:absolute;
+ 	left:280px; top:270px;
+ 	font-size:12px;
+ 	color:#000;
+ 	text-decoration:none;
+ 	font-style:bold;
+ }
+ #h3:hover{
+ 	text-decoration:underline;
+ }
+ #on{
+	 position:absolute;
+	 left:320px; top:262px;
+	 color:rgb(77,135,239);
+	 font-size:18px;
+ }
+ #state{
+	 position:absolute;
+	 left:70px; top:270px;
+	 font-size:14px;
+ }
+ 
+ #h4{
+ 	position:absolute;
+ 	left:440px; bottom:0px;
+ 	font-size:15px;
+ 	color:gray;
+ 	text-decoration:none;
+ 	font-style:bold;
+ }
+ #h5{
+ 	position:absolute;
+ 	left:550px; bottom:0px;
+ 	font-size:15px;
+ 	color:gray;
+ 	text-decoration:none;
+ 	font-style:bold;
+ }
+ #h4:hover{
+ 	text-decoration:underline;
+ }
+ 
+ #h5:hover{
+ 	text-decoration:underline;
+ }
+</style>
+<body>
+<div id="mainDiv">
+	<a href="https://www.daum.net/"><img src="title.jfif" width="350" height="180" /></a>
+	<div id="subDiv">
+		<form method="post" action="aaa.jsp">
+			<input id="i1" type="text" name="userid" value="아이디 입력"/>
+			<input id="i2" type="text" name="userpwd" value="비밀번호 입력"/>
+			<input id="i3" type="checkbox" name="loginstate"/>
+			<input id="i4" type="button" value="로그인"/>
+			<a id="h1" href="https://member.daum.net/find/id.do?action=home" target="_blank">아이디 찾기</a>
+			<a id="h2" href="https://member.daum.net/find/password.do?action=daumid-check" target="_blank">비밀번호 찾기</a>
+			<a id="h3" href="https://logins.daum.net/accounts/loginform/popup/ipsecuritysettingform.do" target="_blank">IP보안</a>
+			<label id="on" value="ON">on</label>
+			<label id="state">로그인 상태 유지</label>
+		</form>
+		<a href="https://issueday.co.kr/chyang2/" target="_blank"><img src="image.png"/></a>
+	</div>
+</div>
+<div id="bottomDiv">
+	<a id="h4" href="https://www.kakaocorp.com/" target="_blank">@Kakao Corp.</a>
+	<a id="h5" href="https://cs.daum.net/faq/59/14970.html" target="_blank">고객센터</a>
+</div>
+</body>
+</html>

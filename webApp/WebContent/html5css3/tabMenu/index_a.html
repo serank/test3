@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul{
+		margin:0px; padding:0px; list-style-type:none
+	}
+	#main{
+		overflow:auto;
+		width:600px;
+	}
+	
+	/*상단*/
+	#leftDiv,#rightDiv{float:left;}
+	#leftDiv{
+		width:400px;
+	}
+	#leftDiv>ul>li{
+		float:left;
+		width:158px;
+		height:132px;
+		border: 1px solid #ddd;
+		margin:0px 20px 20px 0px;
+		padding:10px;
+		background-color:#eee;
+		font-size:14px;
+	}
+	.txtContent>li{
+		float:left;
+		height:66px;
+		margin-bottom:10px;
+		
+		
+		line-height:22px;
+		display:-webkit-box;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-webkit-line-clamp:3; /*3줄만 나오게 하기*/
+		-webkit-box-orient:vertical;
+		
+	}
+	.txtContent>li:first-child{  /*li자손 중 첫번째 자손*/
+		color:rgb(40,188,211);
+	}
+	.txtContent>li:nth-child(2n+1){ /*li자손 중 홀수 번째의 자손*/
+		width:30px;
+		font-size:20px;
+	}
+	.txtContent>li:nth-child(2n){ /*li자손 중 짝수 번째의 자손*/
+		width:128px;
+	}
+	
+	
+	/*오른쪽 상단*/
+	#rightDiv{
+		width:178px;
+		height:326px;
+		border:1px solid #ddd;
+		margin:0px 20px 20px 0px;
+	}
+	
+	
+	/*아래쪽*/
+	#bottomDiv{
+		clear:left; /*왼쪽 정렬 취소하기(위에 right,left 왼쪽정렬한게 그대로 아래쪽으로 내려옴 => 정렬취소해야 bottomDiv가 밑으로 연결된다)*/
+	}
+	#bottomDiv>ul>li{
+		float:left;
+		width:178px;
+		height:160px;
+		border:1px solid #ddd;
+		margin:0px 20px 20px 0px; /*위,오른쪽,아래,왼쪽*/
+		font-size:12px;
+		line-height:25px; /*줄 높이*/
+	}
+	
+</style>
+</head>
+<body>
+<div id="main">
+	<!-- 왼쪽 상단 -->
+	<div id="leftDiv">
+		<ul>
+			<li>
+				<ul class="txtContent">
+					<li><b>Q</b></li>
+					<li><b>헐리우드 영화에서 러시안인이 주로 악당으로 나오는 이유가 무엇일까요?</b></li>
+					<li><b>A</b></li>
+					<li>냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="txtContent">
+					<li><b>Q</b></li>
+					<li><b>'독도'이름의 유래를 알려주세요.</b></li>
+					<li><b>A</b></li>
+					<li>독도와 관련된 명칭은 시대에 따라 문헌에 아주 다양하게 나옵니다. 조선시대에</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="txtContent">
+					<li><b>Q</b></li>
+					<li><b>매실청은 당뇨환자에게 해로운가요?</b></li>
+					<li><b>A</b></li>
+					<li>매실청은 설탕으로 매실을 발효시킨 식품으로 당분이 많이 함유되어 있습니다.</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="txtContent">
+					<li><b>Q</b></li>
+					<li><b>108배가 다이어트에 도움이 되나요?</b></li>
+					<li><b>A</b></li>
+					<li>108배를 하면 땀도 굉장히 많이 나고 전신운동이 되기 때문에 운동효과가 좋습</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!-- 오른쪽 -->
+	<div id="rightDiv">
+		<img src="img/tab2_1.png"/>
+	</div>
+	<!-- 아래쪽 -->
+	<div id="bottomDiv">
+		<ul>
+			<li>
+				<img src="img/tab2_2.png"/>
+				<b>견과류의 하루 적정 섭취량</b><br/>
+				견과류
+			</li>
+			<li>
+				<img src="img/tab2_3.png"/>
+				<b>날벌레가 빛에 몰려드는 이유</b><br/>
+				곤충
+			</li>
+			<li>
+				<img src="img/tab2_4.png"/>
+				<b>냉면의 유래와 역사</b><br/>
+				음식
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

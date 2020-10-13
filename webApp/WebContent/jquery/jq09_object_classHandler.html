@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클래스 조작 객체</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<style>
+	.c1{border:3px solid red; width:200px; height:100px;}
+	.c2{border:3px dotted blue; width:200px; height:100px;}
+	.c3{border:3px dashed green; width:200px; height:100px;}
+	.c4{border:3px double lightblue; width:200px; height:100px;}
+</style>
+<script>
+	$(function(){
+		//addClass() -> 태그에 class 추가
+		$('img').addClass('c1');				 //모든 이미지에 c1이라는 클래스를 추가하겠다
+		$('input[type="text"]').addClass('c2');	 //타입이 text인 모든 입력박스에 c2 클래스를 추가하겠다
+		//$('img').addClass('c4');				 //클래스는 개수에 제한이 없어 여러개 세팅가능. class="c1 c2 c3..."
+
+		//removeClass() -> 태그에 있는 class 지우기
+		$("#username").removeClass("c2");		 //아이디가 username인 객체에서 c2클래스를 제거한다
+		
+		//이미지의 짝수번째에서는 c2 클래스를 추가, 홀수번째에는 c3클래스를 추가
+		//$("img:even").addClass('c3');				//0,1,2,3,4
+		//$("img:odd").addClass('c2');
+		$("img:nth-child(2n)").addClass("c2");		//짝수 1,2,3,4,5
+		//$("img:nth-child(2n+1)").addClass("c3");	//홀수 1,2,3,4,5
+		
+		//toggleClass() -> 클래스가 있으면 지우고, 없으면 추가
+		$("img").toggleClass("c2");
+		
+		//hasClass() - > 클래스가 있는지 없는지의 유무(true, false)를 구한다
+		
+		//첫번째 이미지의 클래스 존재유무를 구한다.
+		var cState = $("img:first").hasClass('c2');
+		$("#username").attr("value", cState);
+		
+		$('#intro').val($("img").eq(0).hasClass('c3'));
+		
+		//html(), text(), val(), attr(), prop()
+	});
+</script>
+</head>
+<body>
+<div>
+	이름 : <input type="text" name="username" id="username"/><br/>
+	연락처 : <input type="text" name="tel" id="tel"/><br/>	
+	<textarea id="intro"></textarea>
+</div>
+<div class="c1 c2 c3 c4"></div>
+<img src="../img/1.jpg"/>
+<img src="../img/2.jpg"/>
+<img src="../img/3.jpg"/>
+<img src="../img/4.jpg"/>
+</body>
+</html>

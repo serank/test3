@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{font-size:40px; text-align:center; width:500px; heignt:100px; line-height:100px;
+		border: 1px solid gray; margin:30px}
+
+/*
+	shadow그림자속성
+	
+	text-shadow:텍스트에 그림자 속성  10px:오른쪽으로 10px의 그림자  / -10px:왼쪽으로 그림자
+	box-shadow:박스에 그림자 속성 
+*/
+
+	div:first-child{
+	/*				오른쪽   아래쪽    흐림정도    색상*/
+		text-shadow:10px 5px    3px   #f00;
+	}
+	div:last-child{
+		box-shadow:5px 5px 5px #aaa;
+	}
+	
+</style>	
+</head>
+<body>
+<div>텍스트에 그림자 속성</div>
+<div>박스에 그림자 속성</div>
+
+</body>
+</html>

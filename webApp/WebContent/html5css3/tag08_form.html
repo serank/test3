@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+폼태그: 서버로 사용자가 입력한 데이터를 가져갈 수 있다
+action: 폼이 서브밋 발생하면 호출하는 파일명 명시함
+get: 주소표시줄에 데이터 표시되는 형식
+post: 데이터 숨겨서 전송한다
+ -->
+ <form method="post" action="Lojin.jsp" type="multiport/form-data">
+ 	아이디: <input type="text" name="userid" value="goguma" maxlength="10" placeholder="아이디 or 이메일"/><br/> <!-- 한 줄의 문자를 입력 -->
+ 	비번: <input type="password" name="userpwd"/><br/> <!-- 한 줄의 문자를 입력 -->
+ 	파일첨부: <input type="file" name="filename"/><br/>
+ 	체크박스: <input type="checkbox" name="hobby" value="여행"/>
+ 		<input type="checkbox" name="hobby" value="등산" checked/>
+ 		<input type="checkbox" name="hobby" value="쇼핑"/><br/>
+ 	
+ 	라디오버튼: <input type="radio" name="gender" value="M" checked/> 남자
+ 			<input type="radio" name="gender" value="W"/> 여자<br/>
+ 			
+ 	여러줄의 텍스트 입력:<br/>
+ 	<textarea cols="50" rows="5" name="content"></textarea><br/>
+ 	<select name="book" size="3" multiple>
+ 		<optgroup label="프론트앤드">
+ 			<option value="자바">자바</option>
+ 			<option value="spring">스프링</option>
+ 			<option value="jsp" selected>JSP</option>
+ 		</optgroup>
+ 		<optgroup label="백앤드">
+ 			<option value="html">HTML</option>
+ 			<option value="mybatis">마이베티스</option>
+ 			<option value="html">HTML</option> 
+ 		</optgroup>
+ 	</select><br/>
+ 	
+
+ 	라벨이 있는 select
+ 	<select name="schedule">
+ 		<option value="자바">자바</option>
+ 		<option value="spring">스프링</option>
+ 		<option value="jsp">JSP</option>
+ 		<option value="html">HTML</option>
+ 		<option value="mybatis">마이베이스</option>
+ 		<option value="html">HTML</option> 
+ 	</select><br/>
+ 	
+ 	date: <input type="date" name="date1"/><br/>
+ 	datetime-local: <input type="datetime-local" name="date2"/></br>
+ 	month: <input type="month" name="date3"/><br/>
+ 	week: <input type="week" name="week"/><br/>
+ 	color: <input type="color" name="color" id="color"/><br/>
+ 	number: <input type="number" name="num" step="10"/><br/>
+ 	range: <input type="range" name="range" id="range" min="1" max="10"/>
+ 	
+ 	<input type="submit" value="로그인"/>
+ 	<input type="image"src="../img/Cat.jpg"/>
+ 	<input type="button" value="코드값 출력" onclick="colorCode()"/>
+ 	<input type="reset" value="다시쓰기"/>
+ </form>
+ <script>
+ 	//javascript
+ 	function colorCode(){
+ 		alert(document.getElementByID("color").value+"/n"+document.getElementById("range").value);
+ 	}
+ </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+#time{width:500px; height:100px; margin-left:200px; }
+#calendar{width:500px; height:400px;}
+#image{width:100px; height:100px;}
+img{width:700px; height:700px;}
+table{
+	  margin-left:100px;
+      border:1px solid #BDBDBD;
+      text-align:center;
+}
+</style>
+
+<script>
+
+
+	var date = new Date(); 
+
+	function getDateTime(){
+			
+			var dateTxt= date.getFullYear()+"년 ";
+			dateTxt += date.getMonth()+1+"월 "; 
+			dateTxt += date.getDate()+"일 ";
+			var weekTxt="";
+			switch(date.getDay()){
+			case 0: weekTxt="일";break;
+			case 1: weekTxt="월";break;
+			case 2: weekTxt="화";break;
+			case 3: weekTxt="수";break;
+			case 4: weekTxt="목";break;
+			case 5: weekTxt="금";break;
+			case 6: weekTxt="토";break;
+			}
+			dateTxt += "("+weekTxt+") ";
+			dateTxt += date.getHours()+"시 ";
+			dateTxt += date.getMinutes()+"분 ";
+			dateTxt += date.getSeconds()+"초 ";
+			
+			document.getElementById("time").innerHTML = dateTxt;
+		}
+	
+	
+	
+	var img = ['1.png', '2.png', '3.png','4.png','5.jpg'];
+
+	var i=0;
+	function changeImage(){
+		document.getElementById("image").innerHTML = "<img src='img/" + img[i++]+"'/>";
+		if(img.length<=i) i=0;
+	}
+	
+	
+ 
+	function calendar(){
+		
+			 var today = new Date(); // 오늘 날짜
+			 var date = new Date();
+			 
+			 var nMonth = new Date(today.getFullYear(), today.getMonth(), 1); //첫째 날
+		     var lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); //마지막 날
+		     var tbcal = document.getElementById("calendar"); // 테이블 달력을 만들 테이블
+		     var yearmonth = document.getElementById("yearmonth"); //2020년 9월 출력
+		     yearmonth.innerHTML = today.getFullYear() + "년 "+ (today.getMonth()+1) + "월"; //년도와 월 출력
+	        
+	      
+	        var row=null;
+	        row=tbcal.insertRow();
+	        var cnt=0;
+	 
+	        //1일 칸 띄우기
+	        for(i=0; i<nMonth.getDay(); i++){
+	            cell = row.insertCell();
+	            cnt = cnt + 1;
+	        }
+	 
+	        //달력 
+	        for(i=1; i<=lastDate.getDate(); i++){ 
+	            cell = row.insertCell();
+	            cell.innerHTML = i;
+	            cnt = cnt + 1;
+	            if (cnt % 7 == 1) {//일요일 계산
+	                cell.innerHTML = "<font color='red'>" + i
+	            }
+	            if (cnt % 7 == 0) { //토요일
+	                cell.innerHTML = "<font color='blue'>" + i
+	                row = calendar.insertRow();//줄 추가
+	            }
+	            
+	        }
+	 
+	   }
+	
+
+</script>
+</head>
+<body onload="interval=setInterval('getDateTime()',1000); interval2=setInterval('changeImage()',1000); calendar();">
+<div id="image"></div>
+<h3 id="time"></h3>
+<table id="calendar">
+        <tr>
+        	 <td colspan="7" align="center" id="yearmonth"></td>
+        </tr>
+        <tr>
+            <td align="center"> <font color="red">일</font></td>
+            <td align="center"> 월 </td>
+            <td align="center"> 화 </td>
+            <td align="center"> 수 </td>
+            <td align="center"> 목 </td>
+            <td align="center"> 금 </td>
+            <td align="center"><font color="blue">토</font></td>
+        </tr>
+ </table>
+    
+
+
+</body>
+</html>

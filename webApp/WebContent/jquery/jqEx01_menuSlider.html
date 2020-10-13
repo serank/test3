@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	body{
+		margin:0px;
+		background-image:url(../img/noise.png);
+	}
+	#content{
+		background-image:url(../img/bg1.jpg);
+		width:1000px; height:1200px;
+		margin:0 auto;
+		background-repeat:no-repeat; /*배경 이미지 한번만 배치하기(반복x)*/
+		}
+	#menu{
+		margin:0px 120px; /*왼쪽,오른쪽만 여백 120px씩 주기*/
+		height:149px;
+		list-style-type:none;
+		padding:0px;
+		}
+	section>img{
+		width:100%;
+	}
+	#menu a:link,#menu a:visited,#menu a:hover{ /*a링크에 대한 스타일시트 조정*/
+		text-decoration:none;
+		color:#808;
+		font-size:1.5em;
+		font-weight:bold;
+	}
+</style>
+
+<script>
+	$(function(){
+		//메뉴 배열로 만들어서 배치하기
+		var menu = ['MENU','ABOUT','WORK','CONTACT'];
+		var menuTag= '';
+		
+		menu.map(function(v,i){ //v:배열 값, i:인덱스
+			menuTag += "<li><a href=''>"+v+"</a></li>"; //메뉴이기 때문에 링크도 같이 적용해주기
+		});
+		
+		$("#menu").html(menuTag);  //prepend(), append(), html()...가능 
+		
+		//메뉴 스타일시트 조정+배경이미지 넣기
+		$("#menu>li").css({
+			width:"25%", //메뉴 4개여서 25%
+			lineHeight:"149px",
+			textAlign:"center",
+			float:"left",
+			backgroundImage:"url(../img/label.png)",
+			backgroundRepeat:"no-repeat", //배경이미지 반복x 한번만
+			backgroundPosition:"center -149px", //배경이미지 위치 선정: 중간으로,이미지의 높이만큼 -하기 => 위로 가서 화면에 보이지 않는다
+
+		});
+		
+		//배경이미지(리본) 마우스 갖다대고 뗄 때마다 보였다가 사라지기 => hover /mouseover,mouseout/ /mouseenter,mouseleave/
+			/*
+		$("#menu>li").on({
+			mouseenter:function(){
+				$(this).css("background-position","center 0px").css("transition-duration","1s");
+				//마우스 갖다대면 이벤트 생긴 객체의 배경이미지 포지션을 조정, 움직이는 데 1초 걸리게 하기 => 천천히 사라지고 나타난다.
+			},mouseleave:function(){
+				$(this).css("background-position","center -149px"); //마우스 떼면 다시 안보이게
+			}
+			
+				
+			});
+			*/
+		
+		//hover
+		$("#menu>li").hover(function(){
+			$(this).css("background-position","center 0px").css("transition-duration","1s");
+		},function(){
+			$(this).css("background-position","center -149px"); 
+		});
+				
+	});
+		
+ 
+</script>
+</head>
+<body>
+<div id="content">
+	<ul id="menu"></ul>
+	<section>
+		<img src='../img/cat2.jpg'/>
+	</section>
+</div>
+</body>
+</html>

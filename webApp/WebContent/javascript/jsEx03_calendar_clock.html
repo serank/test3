@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#mainDate{
+		width:440px; height:440px;
+		padding:20px;
+		margin:0 auto;
+		border:1px solid gray;
+		background-image:url(../img/1.png);
+		background-size:100% 480px;
+	}
+	#clock{
+		height:100px;
+		line-height:100px;
+		background-color:#fff;
+		margin-bottom:40px;
+		font-size:4em;
+		text-align:center;
+		opacity:0.7;
+	}
+	#calendar{
+		height:280px;
+		background-color:#fff;
+		opacity:0.7;
+	}
+	
+	#title{
+		height:60px;
+		font-size:2em;
+		line-height:100px;
+		text-align:center;
+	}
+	ul{margin:0; padding:0; list-style-type:none;}
+	#calendar li{
+	  	float:left;
+        width:14.28%;
+        text-align:center;
+        font-size:1.5em;
+	}
+	
+	
+</style>
+<script>
+
+	var imgLst=['1.png','2.png','3.png','4.png'];
+	var now= new Date();
+	var year = now.getFullYear();
+	var month = now.getMonth()+1;
+	
+	//1일로 변경
+	now.setDate(1);
+	//요일 구하기
+	var week = now.getDay();
+	//마지막날 구하기 - 이번달 0일인경우 전 달 마지막날이 구해짐
+	var lastDay = new Date(year,month,0).getDate(); //10월의 0일=9월 마지막날
+	
+	function setCalendar(){
+		//title(년,월)
+		var tag = "<div id='title'>" + year+"년"+month+"월 </div>";
+		var weekName = ['일','월','화','수','목','금','토'];
+		tag+= "<ul>";
+		
+		for(i=0; i<weekName.length; i++){
+			tag+="<li>"+weekName[i]+"</li>";
+		}
+		
+		
+		//공백
+		for(i=0; i<week; i++){
+			tag+="<li>&nbsp;</li>";
+		}
+		
+		
+		//날짜
+		for(i=1; i<=lastDay; i++){
+			tag+="<li>" + i + "</li>";
+		}
+		
+		
+		tag+= "</ul>";
+		document.getElementById("calendar").innerHTML = tag;
+	}
+	
+	var idx=0;
+	
+	
+	//시계
+	function setClock(){
+		//현재날짜+시간
+		now = new Date();
+		//시,분,초
+		var hour=now.getHours();
+		var minute = now.getMinutes();
+		var second = now.getSeconds();
+		
+		//화면에 표시
+		//시,분,초 문자열 만들기
+		var clockTxt="";
+		if(hour<10){
+			clockTxt += "0" +hour;
+		}else{
+			clockTxt += hour;
+		}
+		
+		if(minute<10){
+			clockTxt += ":0" + minute;
+		}else{
+			clockTxt += ":" + minute;
+		}
+		
+		if(second<10){
+			clockTxt += ":0" + second;
+		}else{
+			clockTxt += ":" + second;
+		}
+		
+		
+		document.getElementById("clock").innerHTML = clockTxt;
+		document.getElementById("mainDate").style.backgroundImage="url(../img/"+ imgLst[idx++] +")";
+		if(idx>=imgLst.length){
+			idx=0;
+		}
+	}
+	
+</script>
+</head>
+<body onload ="setCalendar(); setInterval('setClock()',1000);">
+<div id="mainDate">
+	<div id="clock"></div>
+	<div id="calendar">달력</div>
+</div>
+</body>
+
+</html>

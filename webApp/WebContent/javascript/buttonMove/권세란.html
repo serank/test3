@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#main{
+		position:absolute;
+		width:1000px;
+		height:150px;
+		border:1px solid gray;
+	}
+	#right{margin-left:950px;}
+	
+	#main input{
+		height:150px;
+		float:left;
+	}
+	#main div{
+		float:left;
+	}
+	#img img{
+		height:150px;
+	}
+	#img{
+		float:left;
+		width:2160px;
+		height:150px;	
+		position:absolute;
+		left:-100px;
+	}
+	
+	
+</style>
+<script>
+
+	var imgName=['movie01.png','movie02.png','movie03.png','movie04.png',
+				'movie05.png','movie06.png','movie07.png','movie08.png',
+				'movie09.png','movie10.png','movie11.png','movie12.png',
+				'movie13.png','movie14.png','movie15.png','movie16.png',
+				'movie17.png','movie18.png','movie19.png','movie20.png'];
+		
+	
+	
+	//이미지 세팅
+	function setImage(){
+		
+		var tag="";
+		for(i=0; i<imgName.length; i++){
+			tag += "<img src='img/" + imgName[i] + "' id='" +i+ "'/>";
+		}
+		
+		//main만큼 보이기
+		document.getElementById('img').innerHTML = tag;
+		document.getElementById("img").style.clip="rect(0px "+x2+"px 150px "+x1+"px)";
+	}
+	
+	var x1 =125;
+	var x2 =1073;
+	var step=30;
+	var xx=0;
+
+	function leftMove(){
+		//왼쪽으로 이동
+		x2-=step;
+		x1-=step;
+		xx+=step;
+		
+		var m = document.getElementById("img").style;
+		m.clip="rect(0px "+x2+"px 150px "+x1+"px)";
+		m.left=-100+xx+"px";
+		
+		//방향 변경
+		
+		if(x1<=30){
+			step= -30;
+		}else if(x2>=2140){
+			step=30;
+		}
+	}
+	
+	function rightMove(){
+		
+		//오른쪽으로 이동
+		x2+=step;
+		x1+=step;
+		xx+=step;
+		
+		var m = document.getElementById("img").style;
+		m.clip="rect(0px "+x2+"px 150px "+x1+"px)";
+		m.left=-100-xx+"px";
+		
+		//방향 변경
+		if(x2>=2140){
+			step=-30;
+		}else if(x1<=30){
+			step=30;
+		}
+		
+		
+	}
+	
+	
+</script>
+</head>
+<body onload="setImage()">
+<div id="main">
+	<input type="button" id="left" value="<" onmouseover="leftInterval=setInterval('leftMove()',300)">
+	<div id="img"></div>
+	<input type="button" id="right" value=">" onmouseover="rightInterval=setInterval('rightMove()',300)">
+</div>
+</body>
+</html>

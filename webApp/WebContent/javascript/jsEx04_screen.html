@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#content{
+		width:1000px; margin:0 auto;
+		border: 1px solid gray;
+	}
+	#saverImg{text-align:center;}
+	#saverImg>img{
+		width:100px; height:100px;
+		margin:1px;
+		border:1px solid gray;
+	}
+	#msg{
+		font-size:3em;
+		text-align:center;
+		display:none; /*처음에는 안보인다*/
+	}
+	#wing{
+		width:200px; height:50px;
+		left:0px; top:0px; /*움직여야 하는 이미지이므로 위치 먼저 지정해주기*/
+		display:none;
+		position:absolute;
+	}
+</style>
+<script>
+	
+	var imgName=['sky1.jpg','sky2.jpg','sky3.jpg','sky4.jpg','sky1.jpg','sky2.jpg','sky3.jpg','sky4.jpg'];
+	function setSaverImage(){
+		var tag= "이미지를 클릭하시면 화면보호기가 설정됩니다.</br>";
+		
+		//이미지 넣기
+		for(i=0; i<imgName.length; i++){
+			
+			//파일로 보내기
+			//tag += "<img src='../img/" + imgName[i] + "' onclick='startScreenSaver(\""+ imgName[i]+ "\")'/>"; //이미지 만들면서 onclick 이벤트 같이 만들기
+			//인덱스로 보내기
+			tag += "<img src='../img/" + imgName[i] + "' onclick='startScreenSaver("+ i+ ")'/>";
+		}
+		
+		//
+		document.getElementById("saverImg").innerHTML = tag; //이미지들이 저장되어 있는 tag 쓰기(이미지 출력하기)
+		
+	}
+	
+	function startScreenSaver(selImg){
+		//호출되는ㄴ지 콘솔창에 찍기 => 화면 창에서 f12 누르고 console에서 찍히는지 확인
+		//console.log(selImg); //이미지 이름이 찍힌다(ex.sky1.jpg)
+		
+		//현재 컨텐츠 숨김
+		document.getElementById("content").style.display="none";
+		
+		//body태그에 전체에 배경화면 설정 (getElementByTagName)
+		document.getElementsByTagName("body")[0].style.backgroundImage="url(../img/"+imgName[selImg]+")";
+		
+		//윈도우 창의 폭,높이 저장
+		var wWidth = window.innerWidth;
+		var wHeight = window.innerHeight;
+		var body = document.getElementsByTagName("body")[0];
+		
+		body.style.backgroundSize = wWidth+"px " + wHeight+"px"; //폭과 높이에 px 붙여주기
+		document.getElementById("msg").style.display="block"; //메세지 보이게 설정 바꾸기
+		
+		document.getElementById("msg").style.color="#fff";
+		document.getElementById("wing").style.display="block";
+		
+		timer = setInterval("wingMove()", 30);
+		
+	}
+	
+	
+	
+	var wWidth = window.innerWidth;
+	var wHeight = window.innerHeight;
+	
+	
+	var x=0; 
+	var y=0; 
+	var xStep=35;
+	var yStep=35;
+	
+	
+	function wingMove(){
+		
+		//움직이기
+		x += xStep;
+		y += yStep;
+		
+		var w= document.getElementById("wing").style;
+		
+		w.left = x+"px";
+		w.top = y+"px";
+		
+		if(y>=wHeight-50) yStep=-5;
+		if(x>=wWidth-50) xStep=-5;
+		if(x<=0) xStep=5;
+		if(y<=0) yStep=5;
+		
+	}
+	
+	//화면보호기 종료
+	function cancelSaver(){
+		
+		clearInterval(timer);
+		//배경이미지 없애기
+		document.getElementsByTagName("body")[0].style.backgroundImage="";
+		//메세지 숨기기
+		document.getElementById("msg").style.display="none";
+		//날개 숨기기
+		document.getElementById("wing").style.display="none";
+		
+		//컨텐츠 다시 보이기
+		document.getElementById("content").style.display="block";
+		
+	}
+	
+</script>
+</head>
+<body onload="setSaverImage()" onkeyup="cancelSaver()"> <!-- onkeyup: 아무 키 누르면 시행됨 -->
+<div id="content">
+	<div id="saverImg"></div>
+	<div id="main">
+		<img src="../img/sky1.jpg"/><br/>
+		<img src="../img/sky2.jpg"/><br/>
+		<img src="../img/sky3.jpg"/><br/>
+	</div>
+</div>
+<div id="msg">마우스를 클릭하면 화면보호기가 종료됩니다.</div>
+<img id="wing" src="../img/wing.gif"/>
+</body>
+</html>

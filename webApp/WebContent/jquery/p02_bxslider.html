@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!-- 
+	https://github.com/stevenwanderski/bxslider-4  에서 다운
+	
+	1.jquery
+	2.easing 스크립트 파일
+	3.bxslider 스크립트 파일 => 2~5까지 복사해서 plugin폴더에 복붙
+	4.bxslider 스타일시트 파일
+	5.컨트롤러 이미지 폴더
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="plugin/jquery.easing.1.3.js"></script>
+<script src="plugin/jquery.bxslider.js"></script>
+<link rel="stylesheet" href="plugin/jquery.bxslider.css" type="text/css"/> <!-- 스타일시트는 link로 건다 -->
+<style>
+	#bxslider img{
+		width:800px;
+		height:450px;
+	}
+	ul,li{margin:0px; padding:0px;}
+</style>
+<script>
+	$(function(){
+		$("#bxslider").bxSlider({
+			mode:'horizontal' //화면 전환 방법 'horizontal'(기본) ,'vertical' ,'fade' 
+			,slideWidth:800 //800px
+			,slideHeight:500
+			,speed:2000 //변환속도
+			,auto:true //자동시작(true,false)
+			,randomStart:true //시작슬라이드 랜덤
+			,captions:true //title속성의 값을 설명으로 표시한다(true,false)
+			,infiniteLoop: false //반복 여부
+			,hideControlOnEnd:true //처음과 마지막에 컨트롤러 표시 여부 설정(infiniteLoop false일때 적용됨)
+			//easing
+			,useCSS:false //easing 사용 여부(false해야 easing적용됨)
+			,easing:'easeOutElastic'
+			//콜백함수
+			,onSliderLoad:function(){ //슬라이드 로딩이 완료되면 호출된다
+				$("#msg").append("슬라이드 로딩이 완료됐습니다.");
+			}
+			,onSlideAfter:function(){ //슬라이드가 움직인 후 호출되는 함수
+				$("#msg").append("<br/>슬라이드가 움직인 뒤 호출되는 함수");
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<ul id="bxslider">
+	<li><a href="#"><img src="../img/1.png" title="첫번째 슬라이드"/></a></li> <!-- title: 마우스 올리면 나오는 말풍선 -->
+	<li><a href="#"><img src="../img/2.png" title="두번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/3.png" title="세번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/4.png" title="네번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/5.jpg" title="다섯번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/6.png" title="여섯번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/7.png" title="일곱번째 슬라이드"/></a></li>
+	<li><a href="#"><img src="../img/8.jpg" title="여덟번째 슬라이드"/></a></li>
+</ul>
+<div id="msg"></div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	 #imgAll{width:1000px;
+         margin:0 auto;
+         }
+   #imgAll>img{
+         width:20%;
+         height:200px;
+   }   
+   /*모달*/
+   #modal{
+      width:100%;
+      position:absolute;
+      left:0px;
+      top:0px;
+      background-color:gray;
+      opacity:0.5;
+      height:500px;
+   }   
+   /*큰이미지*/
+   #bigShow{
+      width:400px;
+      height:400px;
+      border:1 solid gray;
+      background-color:#fff;
+      position:absolute;
+      left:200px;
+      top:50px;}
+   #title{
+      font-size:2em;
+      text-align:center;
+      height:40px;
+   }   
+   #bigImg{
+      width:100%;
+      height:360px;
+   }
+   #modal, #bigShow{
+      display:none;      
+   }
+
+</style>
+<script>
+var img=['sky1.jpg','sky2.jpg','cat2.jpg','sky3.jpg','cat3.jpg','sky4.jpg','sky5.jpg']; 
+tag="";
+
+function imgListSet(){
+	for(i=1; i<=20; i++){
+		for(j=0; j<img.length; j++){
+			tag += "<img src='../img/" + img[j] + "' onclick='bigImgShow(this.src)'/>"; //누른 이미지의 경로를 가져간다
+		}
+		document.getElementById("imgAll").innerHTML =tag;
+	}
+}
+
+function bigImgShow(filename){
+	//컨텐츠의 높이를 구한다
+	//var body = document.body.offsetHeight;
+	
+	var html = document.documentElement.scrollHeight;
+	
+	
+	//클릭위치 좌표
+	var left =event.clientX;
+	var top = event.clientY;
+	
+	//모달의 높이 설정, 보여주기
+	document.getElementById("modal").style.height = html+"px";
+	document.getElementById("modal").style.display="block";
+	
+	//큰 이미지 보여주기
+	var big = document.getElementById("bigShow");
+	big.style.display="block";
+	big.style.left= left-200+"px";
+	big.style.top = top+5+"px";
+	
+	//클릭하는 이미지 띄우기
+	var file = filename.substring(filename.lastIndexOf('/')+1);
+	  document.getElementById("title").innerHTML = file;
+	document.getElementById("bigImg").src = filename;
+	
+	}
+	function modalBigHidden(){
+	    document.getElementById("bigShow").style.display = "none";
+	    document.getElementById("modal").style.display="none";
+	 }
+
+	
+	//공지사항 이동하기
+	var divX, divY,eventX, eventY, moveX, moveY, flag=false;
+	
+	function noticeMoveStart(){
+		
+		divX = document.getElementById("bigShow").offsetLeft;
+		divY = document.getElementById("bigShow").offsetTop;
+		
+		//클릭한 위치의 좌표 구하기
+		eventX = event.clientX;
+		eventY = event.clientY;
+		
+		flag=true;
+		document.onmousemove= noticeMove;
+	}
+	
+	function noticeMove(){
+		 if(flag){
+	         //마우스 이동한 곳의 좌표
+	         moveX = event.clientX;
+	         moveY = event.clientY;
+	         
+	         //이동한 pixcel 계산하기
+	         var x = moveX - eventX;
+	         var y = moveY - eventY;
+	         document.getElementById("bigShow").style.left = divX+x +"px";
+	         document.getElementById("bigShow").style.top = divY+y +"px";
+	      }
+
+	}
+	
+	function flagSet(){
+		flag=false;
+	}
+	document.onmouseup = flagSet;
+	
+</script>
+</head>
+<body onload="imgListSet()">
+<div id="modal"></div>
+<div id="imgAll"></div>
+<div id="bigShow">
+	<div id="title" onmousedown="noticeMoveStart()">333.jpg</div>
+	<img src="../img/cat3.jpg" id="bigImg" onclick="modalBigHidden()"/>
+</div>
+</body>
+</html>

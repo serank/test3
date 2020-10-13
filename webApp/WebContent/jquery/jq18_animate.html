@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	#i1,#i2,#i3{
+		width:100px;
+		height:100px;
+		position:absolute;
+	}
+	#i1{
+		background-color:orange;
+	}
+</style>
+<script>
+	$(function(){
+		//animate: 객체의 움직임을 설정한다
+		//		 'slow','fast','normal', 밀리초
+		//		 animate({JSON형식으로 옵션을 설정},움직이는 시간(속도));
+		//		 marginleft: left좌표, 	marginTop: top좌표, width, height, opacity
+		$("#i1").animate({marginLeft:"1000px", marginTop:"500px"},3000);
+		
+		$("#i2").animate({marginLeft:"1200px",marginTop:"300px"},3000)
+				.animate({marginLeft:"100px",marginTop:"600px"},3000); //두 번 이동한다
+		
+		//출발시간 지연시키기 = delay()
+		$("#i3").delay(2000).animate({marginLeft:"700px",marginTop:"300px"},3000);
+		
+		//animate 중지 = stop();     (mouseover되면 멈추게 하기)
+		$("#i1, #i2, #i3").on('mouseover',function(){
+			$(this).stop();
+		});
+	});
+</script>
+</head>
+<body>
+<div id="i1">ANIMATE</div>
+<img src="../img/sky3.jpg" id="i2"/>
+<img src="../img/sky4.jpg" id="i3"/>
+</body>
+</html>

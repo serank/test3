@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+
+	body,ul,li{margin:0px;padding:0px}
+	ul{list-style-type:none} /*장식하는 도트 없애기*/
+	img{width:100%}
+	
+	#mainDiv{width:800px; margin:0 auto;}
+	
+	/*링크*/
+	#navi a:link, #navi a:visited{
+		text-decoration:none;
+		font-size:1.2em;
+		color:gray;
+	}
+	#navi a:hover{
+		text-decoration:none;
+		font-size:1.2em;
+		color:#000;	
+	}
+	
+	/*title*/
+	header{height:200px; font-size:3em; text-align:center; line-height:200px; border-bottom: 3px solid black;}
+	
+	/*네비게이션*/
+	#navi{height:50px; border-bottom: 2px solid gray;}
+	#navi li{text-align:center; line-height:50px;} /*ul높이와 text높이가 50px로 같아진다 => text한 줄이 중앙정렬로 딱 맞춰 들어감 */
+	#navi>li{
+		float:left; width:20%; height:50px;
+	}
+	#navi>li>ul{display:none; border:1px solid gray;background-color:white;  z-index:1000; position:relative;} /*ul밑에 서브메뉴들이 없어짐*/
+	
+	
+</style>
+<script>
+	$(function(){
+		$("#navi>li").hover(function(){
+			$(this).children("ul").css("display","block");
+		},function(){
+			$(this).children("ul").css("display","none");
+		});
+	});
+</script>
+</head>
+<body>
+<div id="mainDiv">
+	<header>GIRLSDAILY</header>
+	<ul id="navi">
+		<li><a href="#">OUTER</a>
+			<!-- 서브메뉴 넣기 -->
+			<ul>
+				<li><a href="#">가디건</a></li>
+				<li><a href="#">자켓&점퍼</a></li>
+				<li><a href="#">베스트</a></li>
+				<li><a href="#">코트</a></li>
+				<li><a href="#">세일</a></li>
+			</ul>
+		</li>
+		<li><a href="#">TOP</a>
+			<ul>
+				<li><a href="#">Tee</a></li>
+				<li><a href="#">Cami</a></li>
+				<li><a href="#">Knit</a></li>
+				<li><a href="#">Shirt&Blouse</a></li>
+			</ul>
+		</li>
+		<li><a href="#">DRESS</a>
+			<ul>
+				<li><a href="#">All</a></li>
+				<li><a href="#">바캉스룩</a></li>
+				<li><a href="#">SET</a></li>
+			</ul>
+		</li>
+		<li><a href="#">BOTTOM</a>
+			<ul>
+				<li><a href="#">힐링투엘브</a></li>
+				<li><a href="#">히든밴딩시리즈</a></li>
+				<li><a href="#">스커트</a></li>
+				<li><a href="#">팬츠</a></li>
+			</ul>
+		</li>
+		<li><a href="#">SUMMER</a>
+			<ul>
+				<li><a href="#">HOLI스윔웨어</a></li>
+				<li><a href="#">at 22C</a></li>
+				<li><a href="#">바캉스룩</a></li>
+			</ul>
+		</li>
+	</ul>
+	<img src="../img/sky4.jpg"/>
+</div>
+</body>
+</html>

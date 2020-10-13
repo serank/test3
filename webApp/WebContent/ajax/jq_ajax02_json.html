@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>
+<script>
+	$(function(){
+		$("button").click(function(){
+			//ajax로 json파일 정보 얻어오기
+			
+			$.ajax({
+				url:"ajax_data.json", //서버에서 전송받을 파일명
+				dataType: "JSON", //전송받은 데이터의 타입
+				success: function(result){ //정상적으로 전송 받은 경우에 실행
+					
+					//result.rank의 데이터를 넣어서 출력(반복문으로)
+					$.each(result.rank, function(idx, data){
+						var tag = "<tr>";
+						tag += "<td>"+(idx+1)+"</td>";
+						tag += "<td>"+data["name"]+"</td>";
+						tag += "<td>"+data["local"]+"</td>";
+						tag += "<td>"+data["tel"]+"</td></tr>";
+						
+						$("#lst").append(tag);
+						
+					});
+					
+				},
+				error:function(error){ //error나면 실행(전송 실패했을 때)
+					console.log("전송실패 "+error.responseText);
+				}
+				
+			});
+		});
+		
+			
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<button class="btn btn-success">클릭하면 서버에서 JSON 형식으로 저장된 데이터를 읽어온다</button>
+	<table class="table" id="lst"></table>
+	<img src="../img/4.png"/>
+</div>
+</body>
+</html>

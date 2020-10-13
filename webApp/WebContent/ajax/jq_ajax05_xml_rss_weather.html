@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device, initial-scale=1"/>
+<link rel="stylesheet" href="../bootstrap/bootstrap.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../bootstrap/bootstrap.js"></script>
+<style>
+	#top{
+		width:100%;
+		height:100px;
+		text-align:center;
+		font-size:2em;
+	}
+</style>
+<script>
+	$(function(){
+		$.ajax({
+			url:"ajax_weather.xml",
+			dateType:"xml",
+			success:function(result){
+				
+				var category=$(result).find('category').text();
+				var author=$(result).find('author').text();
+				
+				$("#top").append("<b>"+category+"</b>   "+author);
+				
+				$(result).find('data').each(function(){
+					var hour = $(this).find('hour').text();
+					var day = $(this).find('day').text();
+					var temp = $(this).find('temp').text();
+					var tms = $(this).find('tms').text();
+					var tmn = $(this).find('tmn').text();
+					var sky = $(this).find('sky').text();
+					
+					var tag="<tr><td>";
+					tag += hour+" "+day+"</td><td>"+ temp+" "+tms+" "+tmn+" "+sky+"</td></tr>";
+					
+					$("#body").append(tag);
+				});
+			},
+			error:function(){
+				
+			}
+		})
+	});
+</script>
+</head>
+<body>
+<div id="top"></div>
+<table class="table table-hover"><tbody id="body"></tbody></table>
+</body>
+</html>

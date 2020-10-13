@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	document.title="인접선택자";
+	
+	/*
+	$document.ready(function(){
+		//jquery
+	});
+	*/
+	
+	$(function(){
+		//jquery
+		//*:모든 선택자: tag:태그선택자, #:아이디 선택자, .:클래스 선택자, >:자손선택자
+		//children선택자: 선택자의 자손을 선택한다
+		
+		$("div").children().css("color","green"); //다 green으로 바뀐다
+		//div태그의 자손 중 클래스가 .one인 경우에만 선택
+		$("div").children(".one").css("border","1px solid red"); //class="one" 인 h1자손만 선이 표시된다
+		
+		//next(): 선택자의 다음ㅇ ㅔ있는 객체를 선택한다.
+		$("#first").next().css("background-color","pink");
+		
+		//prev(): 선택자 이전 객체를 선택한다.
+		$('img').prev().css("border","2px dotted gray");
+		
+		//parent(): 선택자의 부모 객체를 선택한다. 
+		$("img").parent().css("background-color","#eee");
+		
+		//siblings():선택자의 형제들을 선택한다.(자기는 빼고)
+		$("#first").siblings().css("border","3px double blue");
+		
+		//attr(): html과 관련된 속성을 세팅할 때 이용
+		$("img").prev().attr("title","인접선택자 연습중");
+	});
+</script>
+</head>
+<body>
+<div>
+	<h1 id="first">인접선택자</h1>
+	<h1 class="one">children선택자</h1>
+	<h2 class="one">next선택자</h2>
+	<h4>prev선택자</h4>
+	<h4>parent선택자</h4>
+	<h3>sibling선택자</h3>
+
+</div>
+<img src="../img/cat3.jpg"/>
+</body>
+</html>

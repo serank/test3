@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgColor="#ddd" link="red" alink="blue" vlink="green">
+<a href="https://www.nate.com">네이트</a><br/>
+<script>
+	document.title="도큐멘트에서 제목설정";
+	document.write("document.location => "+document.location); //프로토콜,port,컨텍스트,폴더,파일명 까지 다 구해짐
+	document.write("<br/>document.URL => "+document.URL); //location하고 결과가 똑같다
+	
+	document.write("<br/>document.lastModified=> "+document.lastModified);
+	
+	//document.bgColor = "lightblue";
+	document.write("<br/>document.bgColor->"+document.bgColor);
+	document.write("<br/>document.linkColor->"+document.linkColor+","+" alinkColor=>"+document.alinkColor+", vlinkColor="+document.vlinkColor);
+	
+	//쿠키
+	document.cookie = "abcd";
+	document.write9"<br/>document.cookie=> "
+</script>
+
+</body>
+</html>

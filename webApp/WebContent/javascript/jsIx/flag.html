@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#main{
+	width:600px;
+	margin:0 auto;
+	background-color:yellow;
+	padding-right:20px;
+}
+#notice{
+		width:400px;
+		height:400px;
+		position:absolute;
+		left:300px;
+		top:100px;
+		background-color:#fff;
+		border: 1px solid gray;
+		display:none;
+	}
+#noticeContent>img{
+	height:400px;
+}
+#title{
+	height:40px;
+	text-align:center;
+	background-color:#bbb;
+}
+#content>div img{
+	width:120px;
+	height:120px;
+}
+</style>
+<script>
+	var img=['sky1.jpg','sky2.jpg','sky3.jpg','sky4.jpg','sky5.jpg']; 
+	tag="";
+	
+	function imgSet(){
+		for(i=1; i<=20; i++){
+			for(j=0; j<img.length; j++){
+				tag += "<img src='img/" + img[j] + "' onclick='viewImg(this.src)'/>";
+			}
+			document.getElementById("content").innerHTML = "<div>"+tag +"</div><br/>";
+		}
+	}
+	
+	function click(){
+		var src = this.src;
+		console.log(src);
+		
+	}
+	
+	//팝업창 닫기
+	function noticeClose(){
+		document.getElementById("notice").style.display="none";
+	}
+	
+	function noticeXY(){
+		document.getElementById("notice").style.left="300px";
+		document.getElementById("notice").style.top="100px";
+	}
+	
+	//공지사항 이동하기
+	var divX, divY,eventX, eventY, moveX, moveY, flag=false;
+	
+	function noticeMoveStart(){
+		//divX = document.getElementById("notice").style.left;
+		divX = document.getElementById("notice").offsetLeft;
+		divY = document.getElementById("notice").offsetTop;
+		
+		//클릭한 위치의 좌표 구하기
+		eventX = event.clientX;
+		eventY = event.clientY;
+		
+		document.onmousemove= noticeMove;
+	}
+	
+	function noticeMove(){
+		//마우스 이동한 곳의 좌표
+		moveX = event.clientX;
+		moveY = event.clientY;
+		
+		//이동한 픽셀 수 계산하기
+		var x= moveX-eventX;
+		var y= moveY-eventY;
+		
+		flag= true; //움직일 때는 flag가 true일 때만 실행
+		
+		document.getElementById("notice").style.left = divX+x +"px";
+		document.getElementById("notice").style.top = divY+y +"px";
+	}
+	
+	function flagSet(){
+		flag=false;
+	}
+	document.onmouseup = flagSet;
+	
+	function viewImg(url){
+		//누른 이미지로 변경
+		var i=url;
+		document.getElementById("img").src=i;
+		document.getElementById("notice").style.display="block";
+		
+		document.getElementsByTagName("content").style="disabled:'true';"
+	}
+	
+</script>
+</head>
+<body onload="imgSet()">
+<div id="notice" onmousedown="noticeMoveStart()">
+	<div id="title">
+		<div id="text" onclick="noticeClose()">이미지</div>
+	</div>
+	<div id="noticeContent">
+		<img id="img" src="img/sky2.jpg" width="100%"/>
+	</div>
+</div>
+<div id="main">
+	<div id="content"></div>
+</div>
+</body>
+</html>

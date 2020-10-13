@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+	div{border:2px solid red; margin:10px;}
+</style>
+<script>
+	$(function(){
+		//객체 감싸기
+		//wrap(): 선택자를 특정 태그로 각각 감싼다
+		$(".c1").wrap("<h1/>");
+		
+		//wrapAll(): 선택지를 특정 태그로 한번에(한 개로) 감싼다.
+		$(".c2").wrapAll("<div/>");
+		
+		//wrapInner(): 선택자의 하위에 특정태그를 추가한다.
+		$(".c2").wrapInner("<i/>");
+		
+		//unwrap(): 선택자의 부모 객체를 제거한다
+		$(".c2").unwrap();  //wrapAll로 추가해놨던 div 한 곂이 없어진다
+		
+		//each(): 여러개의 객체를 순차적으로 조작한다.
+		//							0,1,2,3,4,5,6   li,li,li,li,li,li,li
+		$("#list>li").each(function(idx, 			obj){
+			$(obj).html("<b>each를 이용한 객체 조작 -> idx: "+idx);
+		});
+	});
+</script>
+</head>
+<body>
+<div class="c1">객체조작 메소드1</div>
+<div class="c1">객체조작 메소드2</div>
+<div class="c2">객체조작 메소드3</div>
+<div class="c2">객체조작 메소드4</div>
+<ul id="list">
+	<li>객체조작 메소드 AAAAAAA</li>
+	<li>객체조작 메소드 BBBBBBB</li>
+	<li>객체조작 메소드 CCCCCCC</li>
+	<li>객체조작 메소드 DDDDDDD</li>
+	<li>객체조작 메소드 EEEEEEE</li>
+	<li>객체조작 메소드 FFFFFFF</li>
+	<li>객체조작 메소드 GGGGGGG</li>
+</ul>
+</body>
+</html>

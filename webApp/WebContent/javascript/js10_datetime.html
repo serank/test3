@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function getDateTime(){
+		//2020년 09월 14일(월요일) 오후 12:05
+		
+		var date = new Date(); //오늘 날짜+시간 
+		var date2= new Date("2020.05.15"); //"2020/05/15" , "2020-05-15" 둘다 가능
+		var date3 = new Date(56575756755554); //1970-01-01 0:0:00를 기점으로 1초에 1000씩 계산되는 밀리초
+		
+		/*
+		년:getFullYear(), 일:getMonth() => 1월:0, 2월:1, 3월:2..., 일:getDate()
+		시:getHours(),    분:getMinutes(),  초:getSeconds()
+		요일:getDay() => 일:0, 월:1, 화:2, 수:3...
+		*/
+		var dateTxt= date.getFullYear()+"년 ";
+		dateTxt += date.getMonth()+1+"월 "; 
+		dateTxt += date.getDate()+"일 ";
+		
+		var weekTxt="";
+		switch(date.getDay()){
+		case 0: weekTxt="일";break;
+		case 1: weekTxt="월";break;
+		case 2: weekTxt="화";break;
+		case 3: weekTxt="수";break;
+		case 4: weekTxt="목";break;
+		case 5: weekTxt="금";break;
+		case 6: weekTxt="토";break;
+		}
+		
+		dateTxt += "("+weekTxt+") ";
+		dateTxt += date.getHours()+"시 ";
+		dateTxt += date.getMinutes()+"분";
+		dateTxt += date.getSeconds()+"초";
+		
+		document.getElementById("viewDate").innerHTML = dateTxt;
+	}
+</script>
+</head>
+<body>
+<h1 id="viewDate"></h1>
+<script>
+	getDateTime();
+</script>
+</body>
+</html>
